@@ -21,4 +21,12 @@ site <- data %>% select(lat, lon)
 info <- data %>% select(original_source, creator, title, publisher, intellectual_rights, license, owner)
 taxo <- data %>% select(observed_scientific_name)
 obs <- data %>% select(obs_unit, obs_variable, obs_value)
-main <- data %>% select(obs_scientific_name, year_obs, day_obs, time_obs, dwc_event_date)
+main <- data %>% select(observed_scientific_name, year_obs, day_obs, time_obs, dwc_event_date)
+
+
+source("combinaisons.R")
+site <- combinaisons(site)
+info <- combinaisons(info)
+taxo <- combinaisons(taxo)
+obs <- combinaisons(obs)
+main <-combinaisons(main)
