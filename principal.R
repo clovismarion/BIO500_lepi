@@ -16,13 +16,9 @@ DonneesPropres <- clean(df_list)
 source("valider.R")
 data <- validate(DonneesPropres)
 
-
-## ajouter un ID à chaque observation
-data$id <- 1:nrow(data)
-
 # Création de dataframes représentant les tables
-geo <- data %>% select(id, lat, lon)
-source <- data %>% select(id, original_source, creator, title, publisher, intellectual_rights, license, owner)
-date <- data %>% select(id, year_obs, day_obs, time_obs, dwc_event_date)
-sp <- data %>% select(id, observed_scientific_name)
-autre <- data %>% select(obs_unit, obs_variable, obs_value)
+site <- data %>% select(lat, lon)
+info <- data %>% select(original_source, creator, title, publisher, intellectual_rights, license, owner)
+taxo <- data %>% select(observed_scientific_name)
+obs <- data %>% select(obs_unit, obs_variable, obs_value)
+main <- data %>% select(obs_scientific_name, year_obs, day_obs, time_obs, dwc_event_date)
