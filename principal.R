@@ -1,5 +1,6 @@
 # Principal
 library(dplyr)
+library(ritis)
 
 # importer les données
 source("load.R")
@@ -25,7 +26,7 @@ main <- data %>% select(observed_scientific_name, year_obs, day_obs, time_obs, d
 
 #Trouver les codes d'sp TSN
 source("Taxo.R")
-taxo <- Taxo(taxonomie)
+taxo <- Code_tsn(taxonomie)
   
 #Avoir des entiees uniques
 source("combinaisons.R")

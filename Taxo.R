@@ -1,4 +1,3 @@
-install.packages("ritis")
 
 # Fonction pour récupérer le TSN depuis ITIS
 Code_tsn <- function(Nom_scientifique) {
@@ -11,7 +10,7 @@ Code_tsn <- function(Nom_scientifique) {
 }
 
 # Appliquer la fonction à toutes les lignes du dataframe
-taxonomie$Code_SP <- sapply(taxonomie$observed_scientific_name, Code_tsn)
+# taxonomie$Code_SP <- sapply(taxonomie$observed_scientific_name, Code_tsn)
 
 # Afficher le dataframe mis à jour
-print(taxonomie)
+# print(taxonomie)
