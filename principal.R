@@ -19,11 +19,15 @@ data <- validate(DonneesPropres)
 # Création de dataframes représentant les tables
 site <- data %>% select(lat, lon)
 info <- data %>% select(original_source, creator, title, publisher, intellectual_rights, license, owner)
-taxo <- data %>% select(observed_scientific_name)
+taxonomie <- data %>% select(observed_scientific_name)
 obs <- data %>% select(obs_unit, obs_variable, obs_value)
 main <- data %>% select(observed_scientific_name, year_obs, day_obs, time_obs, dwc_event_date)
 
-
+#Trouver les codes d'sp TSN
+source("Taxo.R")
+taxo <- Taxo(taxonomie)
+  
+#Avoir des entiees uniques
 source("combinaisons.R")
 site <- combinaisons(site)
 info <- combinaisons(info)
