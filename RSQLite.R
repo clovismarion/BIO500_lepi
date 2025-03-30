@@ -54,7 +54,7 @@ dbSendQuery(con, tbl_info)
 tbl_taxo <- "
 CREATE TABLE taxo (
   observed_scientific_name      VARCHAR(100),
-  code_sp                       INTERGER(10),
+  code_sp                       INTEGER,
   PRIMARY KEY (code_sp)
 );"
 dbSendQuery(con, tbl_taxo)
@@ -80,7 +80,7 @@ CREATE TABLE ensemble (
   dwc_event_date                DATE(20),
   obs_id                        INTEGER NOT NULL,
   info_id                       INTEGER NOT NULL,
-  code_sp                       INTERGER(10),
+  code_sp                       INTEGER,
   lat                           REAL(7),
   lon                           REAL(7),
   PRIMARY KEY (observed_scientific_name, dwc_event_date, obs_id, info_id, code_sp),
