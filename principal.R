@@ -1,6 +1,7 @@
 # Principal
 library(dplyr)
 library(ritis)
+library(RSQLite)
 
 # importer les données
 source("load.R")

@@ -1,7 +1,6 @@
-install.packages('RSQLite')
 library(RSQLite)
 #Connection avce le serveur/fichier
-con <- dbConnect(SQLite(), dbname="mettre ici la connection")
+con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 
 
 #Création de la MAIN table
@@ -23,13 +22,13 @@ dbSendQuery(con, tbl_main)
 
 tbl_observation <- "
 CREATE TABLE observation (
-  obs_id            INTEGER NOT NULL
+  obs_id            INTEGER NOT NULL,
   obs_unit          VARCHAR(40),
   obs_variable      VARCHAR(50),
   obs_value         VARCHAR(200),
   PRIMARY KEY (obs_id)
 );"
-dbSendQuery(con, observation)
+dbSendQuery(con, tbl_observation)
 
 
 
@@ -37,7 +36,7 @@ dbSendQuery(con, observation)
 
 tbl_info <- "
 CREATE TABLE info (
-  info_id                INTEGER NOT NULL
+  info_id                INTEGER NOT NULL,
   original_source        VARCHAR(200),     
   creator                VARCHAR(100),
   title                  VARCHAR(100),
@@ -96,10 +95,10 @@ CREATE TABLE ensemble (
 dbSendQuery(con, tbl_ensemble)
 
 # INJECTION DES DONNÉES
-dbWriteTable(con, append = TRUE, name = "main", value = main, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "main", value = main, row.names = FALSE) #bug
 dbWriteTable(con, append = TRUE, name = "observation", value = obs, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "info", value = info, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "taxo", value = taxo, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "taxo", value = taxo, row.names = FALSE) # bug à cause des codes sp 
 dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
 
 #Faudrait faire la table pour ENSEMBLE mais jsp comment l'écrire pcq on a pas une bd contenant ces infos 
@@ -107,5 +106,12 @@ dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "ensemble", value = bd_collab, row.names = FALSE)
 
 
+# fermeture de la connexion
+dbDisconnect(con)
 
-
+# test  de request pour la table info
+res <- dbGetQuery(con, 'SELECT creator, title
+                     FROM info
+                     LIMIT 10
+                  ')
+View(res)
