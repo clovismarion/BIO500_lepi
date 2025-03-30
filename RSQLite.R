@@ -114,4 +114,5 @@ res <- dbGetQuery(con, 'SELECT creator, title
                   ')
 View(res)
 
-
+#déconnexion de la BD
+dbDisconnect(con)
