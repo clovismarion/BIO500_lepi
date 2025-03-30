@@ -10,8 +10,8 @@ CREATE TABLE main (
   observed_scientific_name      VARCHAR(100),
   year_obs                      INTERGER(4),
   day_obs                       INTERGER(2),
-  time_obs                      TEXT(40),
-  dwc_event_date                TIMESTAMP(20),
+  time_obs                      TIME(40),
+  dwc_event_date                DATE(20),
   PRIMARY KEY (observed_scientific_name, dwc_event_date)
 );"
 dbSendQuery(con, tbl_main)
@@ -71,12 +71,12 @@ CREATE TABLE site (
 dbSendQuery(con, tbl_site)
 
 
-#Création de la table Ensemble
+#Création de la table Ensemble. A retirer, non nécessaire.
 
 tbl_ensemble <- "
 CREATE TABLE ensemble (
   observed_scientific_name      VARCHAR(100),
-  dwc_event_date                TIMESTAMP(20),
+  dwc_event_date                DATE(20),
   obs_id                        INTEGER NOT NULL,
   info_id                       INTEGER NOT NULL,
   code_sp                       INTERGER(10),
