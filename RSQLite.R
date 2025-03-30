@@ -106,12 +106,13 @@ dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "ensemble", value = bd_collab, row.names = FALSE)
 
 
-# fermeture de la connexion
-dbDisconnect(con)
-
 # test  de request pour la table info
 res <- dbGetQuery(con, 'SELECT creator, title
                      FROM info
                      LIMIT 10
                   ')
 View(res)
+
+
+# fermeture de la connexion
+dbDisconnect(con)
