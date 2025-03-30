@@ -8,10 +8,10 @@ con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 tbl_main <- "
 CREATE TABLE main (
   observed_scientific_name      VARCHAR(100),
-  year_obs                      INTERGER(4),
-  day_obs                       INTERGER(2),
-  time_obs                      TIME(40),
-  dwc_event_date                DATE(20),
+  year_obs                      INTEGER,
+  day_obs                       INTEGER,
+  time_obs                      TIME,
+  dwc_event_date                DATE,
   PRIMARY KEY (observed_scientific_name, dwc_event_date)
 );"
 dbSendQuery(con, tbl_main)
@@ -71,7 +71,8 @@ CREATE TABLE site (
 dbSendQuery(con, tbl_site)
 
 
-#Création de la table Ensemble. A retirer, non nécessaire.
+#Création de la table Ensemble. 
+#À retirer, non nécessaire.
 
 tbl_ensemble <- "
 CREATE TABLE ensemble (
@@ -115,3 +116,5 @@ res <- dbGetQuery(con, 'SELECT creator, title
                      LIMIT 10
                   ')
 View(res)
+
+
