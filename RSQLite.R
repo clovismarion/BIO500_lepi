@@ -73,11 +73,11 @@ dbSendQuery(con, tbl_site)
 
 
 # INJECTION DES DONNÉES
-dbWriteTable(con, append = TRUE, name = "main", value = main, row.names = FALSE) #bug
-dbWriteTable(con, append = TRUE, name = "observation", value = obs, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "info", value = info, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "taxo", value = taxo, row.names = FALSE) # bug à cause des codes sp 
-dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "tbl_main", value = main, row.names = FALSE) #bug
+dbWriteTable(con, append = TRUE, name = "tbl_observation", value = obs, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "tbl_info", value = info, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "tbl_taxo", value = taxonomie, row.names = FALSE) # bug à cause des codes sp 
+dbWriteTable(con, append = TRUE, name = "tbl_site", value = site, row.names = FALSE)
 
 
 # test  de request pour la table info
