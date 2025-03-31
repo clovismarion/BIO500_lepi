@@ -71,29 +71,6 @@ CREATE TABLE site (
 dbSendQuery(con, tbl_site)
 
 
-#Création de la table Ensemble. 
-#À retirer, non nécessaire.
-
-tbl_ensemble <- "
-CREATE TABLE ensemble (
-  observed_scientific_name      VARCHAR(100),
-  dwc_event_date                DATE(20),
-  obs_id                        INTEGER NOT NULL,
-  info_id                       INTEGER NOT NULL,
-  code_sp                       INTEGER,
-  lat                           REAL(7),
-  lon                           REAL(7),
-  PRIMARY KEY (observed_scientific_name, dwc_event_date, obs_id, info_id, code_sp),
-  FOREIGN KEY (observed_scientific_name) REFERENCES main(observed_scientific_name),
-  FOREIGN KEY (dwc_event_date) REFERENCES main(dwc_event_date),
-  FOREIGN KEY (obs_id) REFERENCES observation(obs_id),
-  FOREIGN KEY (info_id) REFERENCES observation(info_id),
-  FOREIGN KEY (code_sp) REFERENCES observation(code_sp),
-  FOREIGN KEY (lat) REFERENCES site(lat),
-  FOREIGN KEY (lat) REFERENCES site(lat),
-);"
-
-dbSendQuery(con, tbl_ensemble)
 
 # INJECTION DES DONNÉES
 dbWriteTable(con, append = TRUE, name = "main", value = main, row.names = FALSE) #bug
@@ -101,10 +78,6 @@ dbWriteTable(con, append = TRUE, name = "observation", value = obs, row.names = 
 dbWriteTable(con, append = TRUE, name = "info", value = info, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "taxo", value = taxo, row.names = FALSE) # bug à cause des codes sp 
 dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
-
-#Faudrait faire la table pour ENSEMBLE mais jsp comment l'écrire pcq on a pas une bd contenant ces infos 
-#(Voir l'exemple dans le livre)
-dbWriteTable(con, append = TRUE, name = "ensemble", value = bd_collab, row.names = FALSE)
 
 
 # test  de request pour la table info
