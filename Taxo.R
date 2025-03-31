@@ -1,26 +1,17 @@
-
 # install.packages("ritis")
 library("ritis")
 
-# Recherche code TSN pour "Acer"
-itis_acer <- itis_search(q = "nameWOInd:Acer") # nameWOInd est le champ de recherche pour le nom scientifique
-head(itis_acer)
-
-# Recherche code TSN pour "Castor canadensis"
-itis_castor_canadensis <- itis_search(q = "nameWOInd:Castor\\ canadensis") # On échappe l'espace avec un double backslash
-
-# Fonction pour récupérer le TSN depuis ITIS
-Code_tsn <- function(Nom_scientifique) {
-  tsn <-itis_search(Nom_scientifique)
-  if (!is.null(tsn) && nrow(tsn) > 0) {
-    return(tsn)
-  } else {
-    return(NA)
-  }
+taxo <- function(df, column_name) {
+  unique_names <- unique(df[[column_name]])  # Extract unique names
+  unique_names <- gsub(" ", "\\", unique_names)  # Replace space with "\\ "
+  
+  results <- lapply(unique_names, function(name) {
+    query <- paste0("nameWOInd:", name)
+    itis_search(q = query)
+  })
+  
+  names(results) <- unique_names  # Assign names to results for reference
+  return(results)  # Returns a list of results for each name
 }
-Code_tsn(tax)
-# Appliquer la fonction à toutes les lignes du dataframe
-# taxonomie$Code_SP <- sapply(taxonomie$observed_scientific_name, Code_tsn)54
 
-# Afficher le dataframe mis à jour
-# print(taxonomie)
+itis <- taxo(df = taxonomie, column_name = "observed_scientific_name")
