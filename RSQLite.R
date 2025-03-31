@@ -76,7 +76,7 @@ dbSendQuery(con, tbl_site)
 dbWriteTable(con, append = TRUE, name = "tbl_main", value = main, row.names = FALSE) #bug
 dbWriteTable(con, append = TRUE, name = "tbl_observation", value = obs, row.names = FALSE)
 dbWriteTable(con, append = TRUE, name = "tbl_info", value = info, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "tbl_taxo", value = taxonomie, row.names = FALSE) # bug à cause des codes sp 
+dbWriteTable(con, append = TRUE, name = "tbl_taxo", value = taxonomie, row.names = FALSE) # Ajouter code sp plus tard 
 dbWriteTable(con, append = TRUE, name = "tbl_site", value = site, row.names = FALSE)
 
 
