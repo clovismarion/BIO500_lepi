@@ -10,7 +10,7 @@ library(rnaturalearthdata)
 library(devtools)
 library(dplyr)
 
-#Convertir le dataframe des coordonnées en un objet sf en WSG84
+#Convertir le dataframe des coordonnées en un objet géospatiale en WSG84
 
 site_sf <- st_as_sf(site, coords = c("lon", "lat"), crs = 4326)
 
@@ -35,4 +35,6 @@ plot(st_geometry(site_quebec))
 plot(st_geometry(quebec))
 plot(st_geometry(site_sf), col = "gray", add = TRUE)
 plot(st_geometry(site_quebec), col = "blue", add = TRUE)
+
+
 
