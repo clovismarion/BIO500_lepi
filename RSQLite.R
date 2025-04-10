@@ -1,23 +1,28 @@
 library(RSQLite)
 #Connection avce le serveur/fichier
+
+file.remove("lepidoptere.db")
+
+
 con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 
 
 #Création de la MAIN table
 
-tbl_main <- "
+tble_Main <- "
 CREATE TABLE main (
+  id                            INTEGER PRIMARY KEY AUTOINCREMENT,
   observed_scientific_name      VARCHAR(100),
   year_obs                      INTEGER,
   day_obs                       INTEGER,
   time_obs                      TIME,
-  dwc_event_date                DATE,
-  PRIMARY KEY (observed_scientific_name, dwc_event_date)
+  dwc_event_date                DATE
+
 );"
-dbSendQuery(con, tbl_main)
+dbSendQuery(con, tble_Main)
 
-
-
+head(tble_Main)
+View(tbl4_Main)
 #Création de la table Observation
 
 tbl_observation <- "
@@ -28,7 +33,7 @@ CREATE TABLE observation (
   obs_value         VARCHAR(200),
   PRIMARY KEY (obs_id)
 );"
-dbSendQuery(con, tbl_observation)
+dbSendQuery(con,tbl_observation, "DROP TABLE observation")
 
 
 
@@ -73,16 +78,28 @@ dbSendQuery(con, tbl_site)
 
 
 # INJECTION DES DONNÉES
-dbWriteTable(con, append = TRUE, name = "tbl_main", value = main, row.names = FALSE) #bug
-dbWriteTable(con, append = TRUE, name = "tbl_observation", value = obs, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "tbl_info", value = info, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "tbl_taxo", value = taxonomie, row.names = FALSE) # Ajouter code sp plus tard 
-dbWriteTable(con, append = TRUE, name = "tbl_site", value = site, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "main", value = main, row.names = FALSE) #bug
+dbWriteTable(con, append = TRUE, name = "observation", value = obs, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "info", value = info, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "taxo", value = taxonomie, row.names = FALSE) # Ajouter code sp plus tard 
+dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
 
 
 # test  de request pour la table info
-res <- dbGetQuery(con, 'SELECT creator, title
-                     FROM info
+sql_requete <-"
+SELECT year_obs,id
+  FROM Main LIMIT 10
+;"
+
+test <- dbGetQuery(con,sql_requete)
+head(test)
+                  
+View(test)
+
+
+# test  de request pour la table 
+res <- dbGetQuery(con, 'SELECT o, title
+                     FROM tbl_taxo
                      LIMIT 10
                   ')
 View(res)
