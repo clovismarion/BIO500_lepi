@@ -17,13 +17,18 @@ CREATE TABLE main (
   day_obs                       INTEGER,
   time_obs                      TIME,
   dwc_event_date                DATE
+  Obs_id                        INTERGER,
+  info_id                       INTERGER
+  lat                           REAL(7)
+  long                          REAL(7)
+  FOREIGN KEY (lat) REFERENCES site(lat)
+  FOREIGN KEY (lon) REFERENCES site(lon)
+  
 
 );"
 dbSendQuery(con, tble_Main)
 
-head(tble_Main)
-View(tble_Main)
-#Création de la table Observation
+
 
 tbl_observation <- "
 CREATE TABLE observation (
@@ -33,7 +38,7 @@ CREATE TABLE observation (
   obs_value         VARCHAR(200),
   PRIMARY KEY (obs_id)
 );"
-dbSendQuery(con,tbl_observation, "DROP TABLE observation")
+dbSendQuery(con,tbl_observation)
 
 
 
@@ -52,18 +57,6 @@ CREATE TABLE info (
   PRIMARY KEY (info_id)
 );"
 dbSendQuery(con, tbl_info)
-
-
-
-#Création de la table Taxo
-tbl_taxo <- "
-CREATE TABLE taxo (
-  observed_scientific_name      VARCHAR(100),
-  code_sp                       INTEGER,
-  PRIMARY KEY (code_sp)
-);"
-dbSendQuery(con, tbl_taxo)
-
 
 
 #Création de la table Site
@@ -85,24 +78,32 @@ dbWriteTable(con, append = TRUE, name = "taxo", value = taxonomie, row.names = F
 dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
 
 
-# test  de request pour la table info
-sql_requete <-"
-SELECT year_obs,id
-  FROM Main LIMIT 10
+
+#Requête pour la Q1 de la variation du nombre d'espèce selon la latitude
+requete_Q1 <- "
+SELECT observed_scientific_name, lat
+  FROM main 
 ;"
+Q3 <- dbGetQuery(con, requete_Q3)
+View (Q1)
 
-test <- dbGetQuery(con,sql_requete)
-head(test)
-                  
-View(test)
+#Requête pour la Q2 de la variation du nombre d'espèce selon la longitude
+requete_Q2 <- "
+SELECT observed_scientific_name, lon
+  FROM main 
+;"
+Q2 <- dbGetQuery(con, requete_Q3)
+View (Q2)
+
+#Requête pour la Q3 de la variation du nombre d'espèce dans le temps
+requete_Q3 <- "
+SELECT observed_scientific_name, year_obs
+  FROM main 
+;"
+Q3 <- dbGetQuery(con, requete_Q3)
+View (Q3)
 
 
-# test  de request pour la table 
-res <- dbGetQuery(con, 'SELECT o, title
-                     FROM tbl_taxo
-                     LIMIT 10
-                  ')
-View(res)
 
 #déconnexion de la BD
 dbDisconnect(con)
