@@ -1,7 +1,8 @@
 library(RSQLite)
 #Connection avce le serveur/fichier
 
-# Au besoin, si les table sont déjà existantes on peut utiliser ceci file.remove("lepidoptere.db")
+# Au besoin, si les table sont déjà existantes on peut utiliser ceci 
+file.remove("lepidoptere.db")
 
 
 con <- dbConnect(SQLite(), dbname="lepidoptere.db")
@@ -9,7 +10,7 @@ con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 
 #Création de la MAIN table
 
-tble_Main <- "
+tbl_main <- "
 CREATE TABLE main (
   id                            INTEGER PRIMARY KEY AUTOINCREMENT,
   observed_scientific_name      VARCHAR(100),
@@ -26,7 +27,7 @@ CREATE TABLE main (
   
 
 );"
-dbSendQuery(con, tble_Main)
+dbSendQuery(con, tbl_main)
 
 
 
@@ -71,11 +72,10 @@ dbSendQuery(con, tbl_site)
 
 
 # INJECTION DES DONNÉES
-dbWriteTable(con, append = TRUE, name = "main", value = main, row.names = FALSE) #bug
-dbWriteTable(con, append = TRUE, name = "observation", value = obs, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "info", value = info, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "taxo", value = taxonomie, row.names = FALSE) # Ajouter code sp plus tard 
-dbWriteTable(con, append = TRUE, name = "site", value = site, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "main", value = tbl_main, row.names = FALSE) #bug
+dbWriteTable(con, append = TRUE, name = "observation", value = tbl_obs, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "info", value = tbl_info, row.names = FALSE)
+dbWriteTable(con, append = TRUE, name = "site", value = tbl_site, row.names = FALSE)
 
 
 
@@ -102,7 +102,6 @@ SELECT observed_scientific_name, year_obs
 ;"
 Q3 <- dbGetQuery(con, requete_Q3)
 View (Q3)
-
 
 
 #déconnexion de la BD
