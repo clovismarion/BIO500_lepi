@@ -7,7 +7,14 @@ file.remove("lepidoptere.db")
 
 con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 
-
+#Création de la table Site
+tbl_site <- "
+CREATE TABLE site (
+  lat     REAL(7),
+  lon     REAL(7),
+  PRIMARY KEY (lat, lon)
+);"
+dbSendQuery(con, tbl_site)
 #Création de la MAIN table
 
 tbl_main <- "
@@ -60,14 +67,7 @@ CREATE TABLE info (
 dbSendQuery(con, tbl_info)
 
 
-#Création de la table Site
-tbl_site <- "
-CREATE TABLE site (
-  lat     REAL(7),
-  lon     REAL(7),
-  PRIMARY KEY (lat, lon)
-);"
-dbSendQuery(con, tbl_site)
+
 
 
 
