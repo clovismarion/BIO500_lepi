@@ -17,13 +17,13 @@ CREATE TABLE main (
   year_obs                      INTEGER,
   day_obs                       INTEGER,
   time_obs                      TIME,
-  dwc_event_date                DATE
-  Obs_id                        INTERGER,
-  info_id                       INTERGER
-  lat                           REAL(7)
-  long                          REAL(7)
-  FOREIGN KEY (lat) REFERENCES site(lat)
-  FOREIGN KEY (lon) REFERENCES site(lon)
+  dwc_event_date                DATE,
+  Obs_id                        INTEGER,
+  info_id                       INTEGER,
+  lat                           REAL(7),
+  lon                           REAL(7),
+  FOREIGN KEY (lat, lon) REFERENCES site(lat, lon)
+  
   
 
 );"
@@ -72,19 +72,17 @@ dbSendQuery(con, tbl_site)
 
 
 # INJECTION DES DONNÉES
-dbWriteTable(con, append = TRUE, name = "main", value = tbl_main, row.names = FALSE) #bug
-dbWriteTable(con, append = TRUE, name = "observation", value = tbl_obs, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "info", value = tbl_info, row.names = FALSE)
-dbWriteTable(con, append = TRUE, name = "site", value = tbl_site, row.names = FALSE)
-
-
+dbWriteTable(con, "main", main, append = TRUE, row.names = FALSE)
+dbWriteTable(con, "observation", obs, append = TRUE, row.names = FALSE)
+dbWriteTable(con, "info", info, append = TRUE, row.names = FALSE)
+dbWriteTable(con, "site", site, append = TRUE, row.names = FALSE)  
 
 #Requête pour la Q1 de la variation du nombre d'espèce selon la latitude
 requete_Q1 <- "
 SELECT observed_scientific_name, lat
   FROM main 
 ;"
-Q3 <- dbGetQuery(con, requete_Q3)
+Q1 <- dbGetQuery(con, requete_Q1)
 View (Q1)
 
 #Requête pour la Q2 de la variation du nombre d'espèce selon la longitude
@@ -92,7 +90,7 @@ requete_Q2 <- "
 SELECT observed_scientific_name, lon
   FROM main 
 ;"
-Q2 <- dbGetQuery(con, requete_Q3)
+Q2 <- dbGetQuery(con, requete_Q2)
 View (Q2)
 
 #Requête pour la Q3 de la variation du nombre d'espèce dans le temps
