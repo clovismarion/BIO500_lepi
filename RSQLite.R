@@ -1,7 +1,7 @@
 library(RSQLite)
 #Connection avce le serveur/fichier
 
-file.remove("lepidoptere.db")
+# Au besoin, si les table sont déjà existantes on peut utiliser ceci file.remove("lepidoptere.db")
 
 
 con <- dbConnect(SQLite(), dbname="lepidoptere.db")
