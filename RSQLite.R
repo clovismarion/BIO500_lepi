@@ -22,7 +22,7 @@ CREATE TABLE main (
 dbSendQuery(con, tble_Main)
 
 head(tble_Main)
-View(tbl4_Main)
+View(tble_Main)
 #Création de la table Observation
 
 tbl_observation <- "
