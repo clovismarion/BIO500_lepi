@@ -8,6 +8,7 @@ df <- Q3 %>%
   distinct(year_obs, observed_scientific_name) %>%
   count(year_obs)
 
+
 barplot(df$n,
         names.arg = df$year_obs,
         col = "lightcoral",

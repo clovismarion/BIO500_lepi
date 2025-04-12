@@ -25,9 +25,6 @@ taxonomie <- data %>% select(observed_scientific_name)
 obs <- data %>% select(obs_unit, obs_variable, obs_value)
 main <- data %>% select(observed_scientific_name, year_obs, day_obs, time_obs, dwc_event_date)
 
-#Trouver les codes d'sp TSN
-#source("Taxo.R")
-#taxo <- Code_tsn(taxonomie)
   
 #Avoir des entiees uniques
 source("combinaisons.R")
@@ -41,4 +38,5 @@ main <-combinaisons(main)
 #création des tables
 source("RSQLite.R")
 
-hist(table(Q3$year_obs))
+
+
