@@ -40,3 +40,5 @@ main <-combinaisons(main)
 
 #création des tables
 source("RSQLite.R")
+
+hist(table(Q3$year_obs))

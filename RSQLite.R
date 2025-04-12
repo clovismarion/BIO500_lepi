@@ -1,5 +1,6 @@
 library(RSQLite)
-#Connection avce le serveur/fichier
+
+#Connection avec le serveur/fichier
 
 # Au besoin, si les table sont déjà existantes on peut utiliser ceci 
 file.remove("lepidoptere.db")
@@ -7,14 +8,7 @@ file.remove("lepidoptere.db")
 
 con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 
-#Création de la table Site
-tbl_site <- "
-CREATE TABLE site (
-  lat     REAL(7),
-  lon     REAL(7),
-  PRIMARY KEY (lat, lon)
-);"
-dbSendQuery(con, tbl_site)
+
 #Création de la MAIN table
 
 tbl_main <- "
@@ -67,7 +61,14 @@ CREATE TABLE info (
 dbSendQuery(con, tbl_info)
 
 
-
+#Création de la table Site
+tbl_site <- "
+CREATE TABLE site (
+  lat     REAL(7),
+  lon     REAL(7),
+  PRIMARY KEY (lat, lon)
+);"
+dbSendQuery(con, tbl_site)
 
 
 
@@ -75,7 +76,8 @@ dbSendQuery(con, tbl_info)
 dbWriteTable(con, "main", main, append = TRUE, row.names = FALSE)
 dbWriteTable(con, "observation", obs, append = TRUE, row.names = FALSE)
 dbWriteTable(con, "info", info, append = TRUE, row.names = FALSE)
-dbWriteTable(con, "site", site, append = TRUE, row.names = FALSE)  
+dbWriteTable(con, "site", site, append = TRUE, row.names = FALSE)
+
 
 #Requête pour la Q1 de la variation du nombre d'espèce selon la latitude
 requete_Q1 <- "
