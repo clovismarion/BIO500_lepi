@@ -21,9 +21,11 @@ CREATE TABLE main (
   dwc_event_date                DATE,
   Obs_id                        INTEGER,
   info_id                       INTEGER,
-  lat                           REAL(7),
-  lon                           REAL(7),
-  FOREIGN KEY (lat, lon) REFERENCES site(lat, lon)
+  site_id                       INTEGER,
+  FOREIGN KEY (obs_id) REFERENCES observation(obs_id)
+  FOREIGN KEY (info_id) REFERENCES info(info_id)
+  FOREIGN KEY (site_id) REFERENCES site(site_id)
+  
   
   
 
@@ -64,9 +66,9 @@ dbSendQuery(con, tbl_info)
 #Création de la table Site
 tbl_site <- "
 CREATE TABLE site (
+  site_id INTEGER PRIMARY KEY AUTOINCREMENT,
   lat     REAL(7),
   lon     REAL(7),
-  PRIMARY KEY (lat, lon)
 );"
 dbSendQuery(con, tbl_site)
 
@@ -81,19 +83,25 @@ dbWriteTable(con, "site", site, append = TRUE, row.names = FALSE)
 
 #Requête pour la Q1 de la variation du nombre d'espèce selon la latitude
 requete_Q1 <- "
-SELECT observed_scientific_name, lat
-  FROM main 
-;"
-Q1 <- dbGetQuery(con, requete_Q1)
-View (Q1)
+SELECT main.observed_scientific_name, site_id
+FROM main
+INNER JOIN site ON main.site_id = site_id;
+"
+
+Q1 <- dbGetQuery(con, query)
+View(result)
 
 #Requête pour la Q2 de la variation du nombre d'espèce selon la longitude
+
 requete_Q2 <- "
-SELECT observed_scientific_name, lon
-  FROM main 
-;"
-Q2 <- dbGetQuery(con, requete_Q2)
-View (Q2)
+SELECT main.observed_scientific_name, site_id
+FROM main
+INNER JOIN site ON main.site_id = site_id;
+"
+
+Q2 <- dbGetQuery(con, query)
+View(result)
+
 
 #Requête pour la Q3 de la variation du nombre d'espèce dans le temps
 requete_Q3 <- "
