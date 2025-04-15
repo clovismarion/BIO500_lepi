@@ -27,6 +27,13 @@ quebec <- canada_provinces %>% filter(name_en == "Quebec")
 site_quebec <- site_sf[st_within(site_sf, quebec, sparse = FALSE), ]
 #Le message d'avis ne semble pas être problématique 
 
+#Ajouter True or False Pour Québec
+library(sf)
+
+# Comparer la géométrie de chaque ligne de site_sf à celles présentes dans site_qc(curse)
+#site_sf$Qc <- st_equals(site_sf, site_quebec, sparse = FALSE) %>% 
+  #apply(1, any)
+#head(site_sf)
 
 #Visualisation des données conservées dans notre jeu de données
 plot(st_geometry(site_quebec))
