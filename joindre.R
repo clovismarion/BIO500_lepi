@@ -8,4 +8,3 @@ joindre_id <- function(data, df, df_name = deparse(substitute(df))){
   return(data)
 }
 
-data <- joindre_id(data, site)
