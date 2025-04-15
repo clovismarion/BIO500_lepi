@@ -34,6 +34,14 @@ taxonomie <- combinaisons(taxonomie)
 obs <- combinaisons(obs)
 main <-combinaisons(main)
 
+#joindre les ID au main
+source("joindre.R")
+data <- joindre_id(data, site)
+data <- joindre_id(data, info)
+data <- joindre_id(data, obs)
+
+main <- data %>% select(observed_scientific_name, year_obs, day_obs, time_obs, dwc_event_date, main_id, site_id, info_id, obs_id)
+
 
 #création des tables
 source("RSQLite.R")
