@@ -1,6 +1,6 @@
 #Création d'une fonction pour utiliser seulement nos données au Québec pour nos analyses
 
-devtools::install_github("ropensci/rnaturalearthhires")
+#devtools::install_github("ropensci/rnaturalearthhires")
 
 
 #Chargement des packages utiles
@@ -12,7 +12,7 @@ library(dplyr)
 
 #Convertir le dataframe des coordonnées en un objet géospatiale en WSG84
 
-site_sf <- st_as_sf(site, coords = c("lon", "lat"), crs = 4326)
+site_sf <- st_as_sf(site, coords = c("lon", "lat"), crs = 4326, remove=FALSE)
 
 
 # Obtenir les provinces du Canada
