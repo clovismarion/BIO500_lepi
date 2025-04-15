@@ -45,17 +45,17 @@ clean <- function(df_liste){
   df$obs_variable <- ifelse(df$obs_variable == "" | is.na(df$obs_variable), "NA", "Presence") 
   
   #Limites choisis pour le Québec
-  lat_min <- 44.99
-  lat_max <- 62.00
-  lon_min <- -79.75
-  lon_max <- -57.00
+  #lat_min <- 44.99
+  #lat_max <- 62.00
+  #lon_min <- -79.75
+  #lon_max <- -57.00
   
   #Conserver seulement les données du Québec
-  lapply(df_list, function(df) {
-    df_qc <- subset(df,  
-                    df$lat >= lat_min & df$lat <= lat_max &
-                      df$lon >= lon_min & df$lon <= lon_max)
-  })
+  #lapply(df_list, function(df) {
+    #df_qc <- subset(df,  
+                    #df$lat >= lat_min & df$lat <= lat_max &
+                      #df$lon >= lon_min & df$lon <= lon_max)
+ # })
   return(df)
     })
 }
