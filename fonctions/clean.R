@@ -3,23 +3,28 @@ clean <- function(df_liste){
   lapply(df_liste, function(df) {
     
     #S'assurer de l'uniformité des noms de colones
-    colnames(df) <- c("observed_scientific_name", 
-                      "year_obs", 
-                      "day_obs", 
-                      "time_obs", 
-                      "dwc_event_date", 
-                      "obs_variable", 
-                      "obs_unit", 
-                      "obs_value", 
-                      "lat", 
-                      "lon", 
-                      "original_source", 
-                      "creator", 
-                      "title", 
-                      "publisher", 
-                      "intellectual_rights", 
-                      "license", 
-                      "owner")
+    if (ncol(df) == 17) {
+      colnames(df) <- c("observed_scientific_name", 
+                        "year_obs", 
+                        "day_obs", 
+                        "time_obs", 
+                        "dwc_event_date", 
+                        "obs_variable", 
+                        "obs_unit", 
+                        "obs_value", 
+                        "lat", 
+                        "lon", 
+                        "original_source", 
+                        "creator", 
+                        "title", 
+                        "publisher", 
+                        "intellectual_rights", 
+                        "license", 
+                        "owner")
+    } else {
+      warning("Un dataframe n'a pas exactement 17 colonnes. Vérifier la structure.")
+      return(NULL)
+    }
    
     #appliquer le bon type de variable à la colone
   df$observed_scientific_name <- as.character(df$observed_scientific_name) #noms en caractères
@@ -43,7 +48,9 @@ clean <- function(df_liste){
   #corrections à appliquer
   # toutes les valeurs non-nulles de obs_variables sont converties en "Presence"
   df$obs_variable <- ifelse(df$obs_variable == "" | is.na(df$obs_variable), "NA", "Presence") 
-  data$license[data$license == ""] <- NA
+  if ("license" %in% names(df)) {
+    df$license[trimws(df$license) == ""] <- NA
+  }
   
   #Limites choisis pour le Québec
   #lat_min <- 44.99

@@ -41,8 +41,12 @@ data <- joindre_id(data, info)
 data <- joindre_id(data, obs)
 data <- joindre_id(data, main)
 
+#reformer le main
 main <- data %>% select(observed_scientific_name, year_obs, day_obs, time_obs, dwc_event_date, main_id, site_id, info_id, obs_id)
 
+#filtrer pour données du québec
+source("fonctions/Donnee_Quebec.R")
+site <-quebec(site)
 
 #création des tables
 source("RSQLite.R")
