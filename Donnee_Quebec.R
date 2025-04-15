@@ -23,7 +23,7 @@ canada_provinces <- ne_states(country = "Canada", returnclass = "sf")
 quebec <- canada_provinces[canada_provinces$name_en=='Quebec',]
 
 # Sélectionner les coordonnées au Québec
-site_sf$within_quebec = st_within(site_sf, quebec, sparse = FALSE)
+site_sf$quebec = st_within(site_sf, quebec, sparse = FALSE)
 #Le message d'avis ne semble pas être problématique
 head(site_sf)
 
