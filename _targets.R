@@ -33,11 +33,11 @@ list(
   ),   
   tar_target(
     site_1, 
-    extraction(data_1, c("lat", "long"))
+    extraction(data_1, c("lat", "lon"))
   ),   
   tar_target(
     site_2, 
-    combinaison(site_1)
+    combinaisons(site_1)
   ),   
   tar_target(
     data_2, 
@@ -53,7 +53,7 @@ list(
   ),   
   tar_target(
     info, 
-    combinaison(info_1)
+    combinaisons(info_1)
   ),   
   tar_target(
     data_3, 
@@ -65,7 +65,7 @@ list(
   ),   
   tar_target(
     obs, 
-    combinaison(obs_1)
+    combinaisons(obs_1)
   ),   
   tar_target(
     data_4, 
@@ -77,7 +77,7 @@ list(
   ),   
   tar_target(
     main, 
-    combinaison(main_1)
+    combinaisons(main_1)
   ),   
   tar_target(
     data, 
