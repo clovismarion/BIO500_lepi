@@ -40,7 +40,8 @@ tbl_site <- "
 CREATE TABLE site (
   site_id INTEGER PRIMARY KEY,
   lat     REAL(7),
-  lon     REAL(7)
+  lon     REAL(7),
+  Quebec  BOOLEAN
 );"
 dbSendQuery(con, tbl_site)
 
@@ -76,7 +77,8 @@ requete_Q1 <- "
 SELECT main.observed_scientific_name, site.site_id
 FROM main
 left JOIN site
-  ON site.site_id = site.site_id;
+  ON main.site_id = site.site_id
+WHERE site.Quebec = TRUE
 "
 
 Q1 <- dbGetQuery(con, requete_Q1)
@@ -85,28 +87,24 @@ View(Q1)
 #Requête pour la Q2 de la variation du nombre d'espèce selon la longitude
 
 requete_Q2 <- "
-SELECT main.observed_scientific_name, site.lat
+SELECT main.observed_scientific_name, site.lat, site.site_id
 FROM main
 left JOIN site
-  ON site.site_id = site_id;
-#Where main.Qc is True
+  ON main.site_id = site.site_id
+WHERE site.Quebec = True
    
 "
 
-Q2 <- dbGetQuery(con, query)
-View(result)
+Q2 <- dbGetQuery(con, requete_Q2)
+View(Q2)
 
-
-requete_Q2 <- "
-SELECT main.observed_scientific_name, site.lon
-FROM main
-left JOIN site
-  ON site.site_id = site_id;
-#Where main.Qc is True
-"
 
 requete_Q3 <- "
-SELECT * FROM main LIMIT 5;
+SELECT main.observed_scientific_name, site.lon, site.site_id
+FROM main
+left JOIN site
+  ON main.site_id = site.site_id
+WHERE site.Quebec = True
 "
 
 Q3 <- dbGetQuery(con, requete_Q3)
