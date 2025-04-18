@@ -1,6 +1,9 @@
-load_csv_files <- function(path, exclude_file = NULL, combine = FALSE) {
+load_csv_files <- function(exclude_file = NULL, combine = FALSE) {
+  # Chemin des fichiers
+  dir <- getwd()
+  
   # Lister tous les csv dans le directory
-  file_list <- list.files(path = file.path(path, "lepidopteres"), pattern = ".csv", full.names = TRUE)
+  file_list <- list.files(path = file.path(dir, "lepidopteres"), pattern = ".csv", full.names = TRUE)
   
   #Omettre des fichiers, si précisé
   if (!is.null(exclude_file)) {
