@@ -1,53 +1,29 @@
 ---
-title: Évolution de la structure 
-
+title: Évolution de la diversité de Lepidoptères selon un gradient spatial et temporel
 # Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
 author:
   - name: Clovis Marion
   - name: Léane Plouffe
   - name: Laurent Fournelle-Grenier
   - name: Mariève Trottier 
-  - code: a
-    address: Some Institute of Technology, Department, Street, City, State, Zip
-  - code: b
-    address: Another University Department, Street, City, State, Zip
+    address: Université de Sherbrooke, Department de Biologie,Sherbrooke, Québec, Canada
 
-corresponding_author:
-  code: 2
-  text: "To whom correspondence should be addressed. E-mail: bob@email.com"
 
 # For footer text
-lead_author_surname: Anonymous
+lead_author_surname: 
 
-## Remove this if not required    
-equal_authors:
-  code: 1
-  text: "A.O.(Author One) and A.T. (Author Two) contributed equally to this work (remove if not applicable)."
-
-
-author_contributions: |
-  Please provide details of author contributions here.
-
-## Remove this if not required
-conflict_of_interest: |
-  Please declare any conflict of interest here.
 
 abstract: |
-  Please provide an abstract of no more than 250 words in a single paragraph. Abstracts should explain to the general reader the major contributions of the article. References in the abstract must be cited in full within the abstract itself and cited in the text.
+  
+Dans un contexte de changements environnementaux rapides, les structures des communautés d’insectes, dont les lépidoptères, subissent d’importantes transformations.Cette étude s’appuie sur des données, provenant en partie d’observation citoyennes, pour analyser la distribution spatiale des lépidoptères au Québec. Les variations du nombre d’observations sont examinées selon la latitude et la longitude, afin de détecter des tendances spatiales selon les zones climatiques.. 
 
-
-significance: |
-  Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the Significance Statement is to explain the relevance of the work in broad context to a broad readership. The Significance Statement appears in the paper itself and is required for all research papers.
-
-acknowledgements: |
-  Please include your acknowledgments here, set in a single paragraph. Please do not include any acknowledgments in the Supporting Information, or anywhere else in the manuscript.
 
 keywords:
-  - one
-  - two
-  - optional
-  - optional
-  - optional
+  - Lépidoptère
+  - iNaturalist
+  - Science citoyenne
+  - zones climatiques
+  - Changements climatiques
 
 ## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
 pnas_type: pnasresearcharticle
