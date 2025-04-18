@@ -1,6 +1,4 @@
-extract_columns <- function(df, ...) {
-  df %>%
-    dplyr::select(...)
+extraction <- function(df, cols) {
+  df[, cols, drop = FALSE]
 }
 
-site <- extract_columns(data, lon, lat)
