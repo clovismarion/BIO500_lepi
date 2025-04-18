@@ -15,3 +15,5 @@ combiner_id <- function(data, cols, df_name = "df") {
   
   return(list(data = data_final, ids = extrait_unique))
 }
+
+
