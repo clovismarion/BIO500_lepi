@@ -1,5 +1,4 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-df_list|stem|c6225f4096b0aa41|c213becefa4884f7|1c2a422a6970bb7b|212796754||t20196.7742711818s|s6324350b|6324350|rds|local|vector|||4.58|package igraph was built under R version 4.4.3|
 donnees_propre|stem|d301fec53efa2f5f|4cbb9f28b69a3d88|ff191a9d18551e00|1256574541||t20196.77437975s|s5099826b|5099826|rds|local|vector|||6.77|NAs introduced by coercion. NAs introduced by coercion|
 data_1|stem|d8dea35fa7a04a99|51248323aab2bd75|7d7a7f03b92f9ad0|-362703061||t20196.7745144606s|s4625153b|4625153|rds|local|vector|||8.72||
 main_1|stem|fd4a2ecce5db54a4|919ea82241a453cd|09f8a85437ae7fba|570024880||t20196.7745574073s|s2395577b|2395577|rds|local|vector|||0||
@@ -11,12 +10,22 @@ site_2|stem|222a41702c752772|d2fa668b7bc9bdee|2cf764d81691ca8d|1562942614||t2019
 info|stem|330b5bebd9e2f179|a46f3f46e25f5ad9|22c06cac4b5367e7|-1490931151||t20196.793629604s|s2773b|2773|rds|local|vector|||0.28||
 obs|stem|c9e97d5bb65c0043|ad8842feb1a57336|2cedec203d41cc7e|-2100081794||t20196.7936323026s|s466b|466|rds|local|vector|||0.02||
 site|stem|38a7afdb900e6edb|9895a94f2ef87a97|0adf9ea98bcbf12a|-1157844207||t20196.7941491733s|s417927b|417927|rds|local|vector|||44.58|bounding box has potentially an invalid value range for longlat data|
+joindre_id|function|b010d8026f585f97|||||||||||||||
+extraction|function|7d9aa77e5d9a9d5e|||||||||||||||
+data_2|stem||66134de68bd69aad|fce51911ee1bea48|-1497429550||t20196.7941704323s||0|rds|local|vector|||0.11||Join columns in x must be present in the data. Problem with site_1_id.
+combinaisons|function|d0dacd96f0c60748|||||||||||||||
+df_list|stem|c6225f4096b0aa41|c213becefa4884f7|1c2a422a6970bb7b|212796754||t20197.9446121843s|s6324350b|6324350|rds|local|vector|||3.55|package igraph was built under R version 4.4.3|
+clean_data|stem|d301fec53efa2f5f|4cbb9f28b69a3d88|ff191a9d18551e00|-259385813||t20197.9447031247s|s5099826b|5099826|rds|local|vector|||5.66|NAs introduced by coercion. NAs introduced by coercion|
+raw_data|stem|d8dea35fa7a04a99|41b7144bfabefe30|72de0e3517b5df02|-1101284392||t20197.9455185845s|s4625153b|4625153|rds|local|vector|||3.67||
+df_site|stem|751023399789e15e|25999e47737626fb|86708be3f21812ea|612879122||t20197.9561277617s|s5750230b|5750230|rds|local|vector|||0.41||
+df_info|stem|2a08d242ccf1ef63|3fd23dfc94c9e67d|4f1d86e708e7e206|1995444860||t20197.9589515704s|s5350284b|5350284|rds|local|vector|||0.45||
+df_infos|stem|2a08d242ccf1ef63|3fd23dfc94c9e67d|4f1d86e708e7e206|291449188||t20197.9618404907s|s5350284b|5350284|rds|local|vector|||0.45||
+df_obs|stem|216927e2061c6b9c|049ed50ba8a3ee1e|3f22a0399940f626|-901654702||t20197.961872064s|s5372254b|5372254|rds|local|vector|||0.31||
+df_main|stem|12be6600df691572|d70c2be6fd6d3368|1c25300f9977fd67|398572223||t20197.9651468256s|s8449619b|8449619|rds|local|vector|||0.69||
 load_csv_files|function|e86072892c5c5d41
 quebec|function|19d5b941d8d71909
-joindre_id|function|b010d8026f585f97
 clean|function|55eaad95b71cf105
 validate|function|770a746eee9c9e0f
-.Random.seed|object|59cebfb2963def73
-extraction|function|7d9aa77e5d9a9d5e
-combinaisons|function|d0dacd96f0c60748
-data_2|stem||66134de68bd69aad|fce51911ee1bea48|-1497429550||t20196.7941704323s||0|rds|local|vector|||0.11||Join columns in x must be present in the data. Problem with site_1_id.
+.Random.seed|object|9746c8dc604d6fb0
+list_data|function|4f767842363de450
+df_site_qc|stem|89894ecf98497995|224a409fc381331c|a1f22cec29e5dfef|-1809320253||t20197.9743338961s|s417925b|417925|rds|local|vector|||2.96|bounding box has potentially an invalid value range for longlat data|

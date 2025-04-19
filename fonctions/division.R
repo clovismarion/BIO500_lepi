@@ -1,12 +1,12 @@
 library(dplyr)
 
-add_id_column <- function(data, cols, id_name) {
+list_data <- function(data, cols, id_name) {
   # Define new ID column name
   id_col <- paste0("id_", id_name)
   
   # Create distinct ID table with custom name
   id_table <- data %>%
-    select(all_of(cols)) %>%
+    dplyr::select(dplyr::all_of(cols)) %>%
     distinct() %>%
     mutate(!!id_col := row_number())
   
