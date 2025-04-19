@@ -1,19 +1,23 @@
-combiner_id <- function(data, cols, df_name = "df") {
-  # 1. Extraction des colonnes d'intérêt
-  extrait <- data[, cols, drop = FALSE]
-  
-  # 2. Retrait des doublons et création de l'ID
-  extrait_unique <- extrait %>%
-    distinct()
-  
-  id_col_name <- paste0(df_name, "_id")
-  extrait_unique[[id_col_name]] <- seq_len(nrow(extrait_unique))
-  
-  # 3. Jointure pour ajouter l'ID dans les données originales
-  data_final <- data %>%
-    left_join(extrait_unique, by = cols)
-  
-  return(list(data = data_final, ids = extrait_unique))
-}
+library(dplyr)
 
-data <- combiner_id(data = data, cols = c("lon", "lat"), df_name = "site")
+add_id_column <- function(data, cols, id_name) {
+  # Define new ID column name
+  id_col <- paste0("id_", id_name)
+  
+  # Create distinct ID table with custom name
+  id_table <- data %>%
+    select(all_of(cols)) %>%
+    distinct() %>%
+    mutate(!!id_col := row_number())
+  
+  # Join new ID column to original data
+  data_with_id <- data %>%
+    left_join(id_table, by = cols)
+  
+  # Return a named list with the table named after id_name
+  output <- list()
+  output[[paste0(id_name, "_table")]] <- id_table
+  output$data_with_id <- data_with_id
+  
+  return(output)
+}
