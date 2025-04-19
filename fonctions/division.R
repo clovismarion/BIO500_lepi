@@ -16,4 +16,4 @@ combiner_id <- function(data, cols, df_name = "df") {
   return(list(data = data_final, ids = extrait_unique))
 }
 
-
+data <- combiner_id(data = data, cols = c("lon", "lat"), df_name = "site")
