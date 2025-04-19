@@ -1,11 +1,9 @@
 library(RSQLite)
 
-#Connection avec le serveur/fichier
-
-# Au besoin, si les table sont déjà existantes on peut utiliser ceci 
+#supprimer fichier du dossier pour éviter les problèmes
 file.remove("lepidoptere.db")
 
-
+#établir la connection
 con <- dbConnect(SQLite(), dbname="lepidoptere.db")
 
 #Création de la table observation
@@ -19,9 +17,7 @@ CREATE TABLE observation (
 dbSendQuery(con,tbl_observation)
 
 
-
 #Création de la table Info
-
 tbl_info <- "
 CREATE TABLE info (
   info_id                INTEGER PRIMARY KEY,
@@ -35,6 +31,7 @@ CREATE TABLE info (
 );"
 dbSendQuery(con, tbl_info)
 
+
 # Création de la table Site
 tbl_site <- "
 CREATE TABLE site (
@@ -45,8 +42,8 @@ CREATE TABLE site (
 );"
 dbSendQuery(con, tbl_site)
 
-#Création de la MAIN table
 
+#Création de la MAIN table
 tbl_main <- "
 CREATE TABLE main (
   main_id                       INTEGER PRIMARY KEY,
@@ -54,7 +51,7 @@ CREATE TABLE main (
   year_obs                      INTEGER,
   day_obs                       INTEGER,
   time_obs                      TIME,
-  dwc_event_date                DATE,
+  dwc_event_date                TEXT,
   obs_id                        INTEGER,
   info_id                       INTEGER,
   site_id                       INTEGER,
@@ -64,52 +61,12 @@ CREATE TABLE main (
 );"
 dbSendQuery(con, tbl_main)
   
-
 # INJECTION DES DONNÉES
 dbWriteTable(con, "main", main, row.names = FALSE, overwrite=TRUE)
 dbWriteTable(con, "observation", obs, row.names = FALSE, overwrite=TRUE)
 dbWriteTable(con, "info", info, overwrite = TRUE, row.names = FALSE)
 dbWriteTable(con, "site", site, overwrite = TRUE, row.names = FALSE)
 
-
-#Requête pour la Q1 de la variation du nombre d'espèce selon la latitude
-requete_Q1 <- "
-SELECT main.observed_scientific_name, site.site_id
-FROM main
-left JOIN site
-  ON main.site_id = site.site_id
-WHERE site.Quebec = TRUE
-"
-
-Q1 <- dbGetQuery(con, requete_Q1)
-View(Q1)
-
-#Requête pour la Q2 de la variation du nombre d'espèce selon la longitude
-
-requete_Q2 <- "
-SELECT main.observed_scientific_name, site.lat, site.site_id
-FROM main
-left JOIN site
-  ON main.site_id = site.site_id
-WHERE site.Quebec = True
-   
-"
-
-Q2 <- dbGetQuery(con, requete_Q2)
-View(Q2)
-
-
-requete_Q3 <- "
-SELECT main.observed_scientific_name, site.lon, site.site_id
-FROM main
-left JOIN site
-  ON main.site_id = site.site_id
-WHERE site.Quebec = True
-"
-
-Q3 <- dbGetQuery(con, requete_Q3)
-View (Q3)
-
-
 #déconnexion de la BD
+
 dbDisconnect(con)

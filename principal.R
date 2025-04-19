@@ -1,6 +1,5 @@
 # Principal
 library(dplyr)
-library(ritis)
 library(RSQLite)
 
 # importer les données
@@ -8,7 +7,6 @@ source("fonctions/load.R")
 
 ## avoir le fichier comportant les données en csv et nommé "lepidopteres"
 df_list <- load_csv_files(exclude_file = "taxonomie.csv", combine = F)
-
 
 # S'assurer de l'uniformité dans la structure des données
 source("fonctions/clean.R")
