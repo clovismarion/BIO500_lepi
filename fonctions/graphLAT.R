@@ -12,8 +12,7 @@ graphLAT <- function(){
        cex = 0.8,                            # taille des points
        col = "black",                        # couleur des points
        xlab = "Nombre d'espèces distinctes",
-       ylab = "Latitude",
-       main = "Richesse spécifique selon la latitude")
+       ylab = "Latitude")
   
   # Ajouter une ligne horizontale à la latitude 48
   abline(h = 48, col = "red", lwd = 2)

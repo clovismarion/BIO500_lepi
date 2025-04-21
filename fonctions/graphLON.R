@@ -1,5 +1,3 @@
-graphLON()
-
 graphLON <- function(){
   
   #nombre d'espèce par latitude différente
@@ -12,8 +10,7 @@ graphLON <- function(){
        cex = 0.8,                            # taille des points
        col = "black",                        # couleur des points
        xlab = "Nombre d'espèces distinctes",
-       ylab = "Longitude",
-       main = "Richesse spécifique selon la longitude")
+       ylab = "Longitude")
 
   
   grid()

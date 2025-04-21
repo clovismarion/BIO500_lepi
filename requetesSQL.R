@@ -16,7 +16,7 @@ View(Q1)
 
 #Requête pour variations spatiales
 requete_Q2 <- "
-SELECT main.observed_scientific_name, site.lat, site.lon, site.site_id,
+SELECT main.observed_scientific_name, site.lat, site.lon, site.site_id
 FROM main
 left JOIN site
   ON main.site_id = site.site_id

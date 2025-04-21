@@ -2,10 +2,10 @@ library(dplyr)
 
 # LAT - LON
 
-Q2lat <- Q2 %>%
+Q1lat <- Q1 %>%
   mutate(lat_classe = round(lat, 1)) 
 
-richesse_par_lat <- Q2lat %>%
+richesse_par_lat <- Q1lat %>%
   group_by(lat) %>%
   summarise(nb_especes = n_distinct(observed_scientific_name))
 
@@ -14,11 +14,10 @@ ggplot(richesse_par_lat, aes(x = lat, y = nb_especes)) +
   geom_point(size = 0.8) +
   labs(title = "Richesse spécifique selon la latitude",
        x = "Latitude", y = "Nombre d'espèces distinctes") +
-  theme_minimal()
+  theme_minimal()+
+  geom_vline(xintercept=48, color="red")
 
-plot(richesse_par_lat$lat, richesse_par_lat$nb_especes)
-grid()
-abline(v=48, col="red")
+
 
 Q2lon <- Q2 %>%
   mutate(lon_classe = round(lon, 1)) 
@@ -198,3 +197,15 @@ ggplot(obs_par_annee, aes(x = annee, y = nb_obs)) +
 #------------------------------
 
 
+Q2_summarise <- Q2 %>%
+  mutate(lat_round = round(lat, 1)) %>%
+  group_by(lat_round) %>%
+  summarise(nb_obs = n()) %>%
+  arrange(lat_round)
+
+# 2. Graphique
+ggplot(Q2_summarise, aes(x = lat_round, y = nb_obs)) +
+  geom_col(fill = "steelblue") +
+  labs(title = "Nombre d'observations selon la latitude",
+       x = "Latitude (arrondie à 0.1°)", y = "Nombre d'observations") +
+  theme_minimal()
