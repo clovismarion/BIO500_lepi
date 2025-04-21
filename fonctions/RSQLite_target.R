@@ -28,7 +28,7 @@ CREATE TABLE info (
 );"
   dbSendQuery(con, tbl_info)
   
-  tbl_site <- "
+  tbl_site_qc <- "
 CREATE TABLE site (
   site_id INTEGER PRIMARY KEY,
   lat     REAL(7),
