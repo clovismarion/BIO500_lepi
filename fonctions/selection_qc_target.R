@@ -26,7 +26,6 @@ selection_qc <- function(site){
   site_sf$Quebec <- st_within(site_sf, quebec, sparse = FALSE)
   
   site <- site_sf
-  site$geometry <- NULL
   
   return(site)
 }
