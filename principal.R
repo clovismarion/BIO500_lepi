@@ -3,18 +3,18 @@ library(dplyr)
 library(RSQLite)
 
 # importer les données
-source("fonctions/load.R")
+source("fonctions/chargement_target.R")
 
 ## avoir le fichier comportant les données en csv et nommé "lepidopteres"
-df_list <- load_csv_files(exclude_file = "taxonomie.csv", combine = F)
+df_list <- chargement(exclure = "taxonomie.csv", combiner = F)
 
 # S'assurer de l'uniformité dans la structure des données
-source("fonctions/clean.R")
-DonneesPropres <- clean(df_list)
+source("fonctions/nettoyage_target.R")
+DonneesPropres <- nettoyage(df_list)
 
 # Valider à l'oeil les données
-source("fonctions/valider.R")
-data <- validate(DonneesPropres)
+source("fonctions/valider_target.R")
+data <- valider(DonneesPropres)
 
 # Création de dataframes représentant les tables
 site <- data %>% 

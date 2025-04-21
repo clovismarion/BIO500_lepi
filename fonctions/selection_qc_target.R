@@ -11,7 +11,7 @@ library(devtools)
 library(dplyr)
 
 
-quebec <- function(site){
+selection_qc <- function(site){
   
 #Convertir le dataframe des coordonnées en un objet géospatiale en WSG84
   site_sf <- st_as_sf(site, coords = c("lon", "lat"), crs = 4326, remove=FALSE)
