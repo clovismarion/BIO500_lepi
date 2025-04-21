@@ -15,7 +15,7 @@ lead_author_surname:
 
 abstract: |
   
-Dans un contexte de changements environnementaux rapides, les structures des communautés d’insectes, dont les lépidoptères, subissent d’importantes transformations.Cette étude s’appuie sur des données, provenant en partie d’observation citoyennes, pour analyser la distribution spatiale des lépidoptères au Québec. Les variations du nombre d’observations sont examinées selon la latitude et la longitude, afin de détecter des tendances spatiales selon les zones climatiques.. 
+Dans un contexte de changements environnementaux rapides, les structures des communautés d’insectes, dont les lépidoptères, subissent d’importantes transformations.Cette étude s’appuie sur des données, provenant en partie d’observation citoyennes, pour analyser la distribution spatiale des lépidoptères au Québec. La richesse spécifiques est examinées selon la latitude et la longitude, afin de détecter des tendances spatiales selon les zones climatiques sur le territoire Québécois. 
 
 
 keywords:
@@ -66,7 +66,7 @@ ORCID ID may supply this information at submission.
 
 Submitting Manuscripts {#submitting-manuscripts .unnumbered}
 ----------------------
-
+à
 All authors must submit their articles at
 [PNAScentral](http://www.pnascentral.org/cgi-bin/main.plex). If you are
 using Overleaf to write your article, you can use the "Submit to PNAS"
