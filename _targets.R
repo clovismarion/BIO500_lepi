@@ -13,8 +13,10 @@ source("fonctions/chargement_target.R")
 source("fonctions/nettoyage_target.R")
 source("fonctions/valider_target.R")
 source("fonctions/liste_donnees_target.R")
+source("fonctions/selection_target.R")
 source("fonctions/selection_qc_target.R")
 source("fonctions/RSQLite_target.R")
+source("fonctions/injection_target.R")
 
 # Pipeline
 list(
@@ -60,6 +62,26 @@ list(
     selection_qc(site = df_site$site_table)
   ),   
   tar_target(
-    creation_tables, 
-    table_creation(db_nom = "lepidoptre.db")
+    principal,
+    selection(df = df_main$data_with_id, 
+              cols = c("observed_scientific_name", "year_obs", "day_obs", "time_obs", "dwc_event_date", "id_principal", "id_site", "id_infos", "id_obs"))
+    
+  ),
+  tar_target(
+    tables_sql, 
+    table_creation(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    carte_table, 
+    list(main = principal,
+         observation = df_observation$id_table,
+         info = df_info$id_table,
+         site = df_site_qc)
+  ),
+  tar_target(
+    db_sql, 
+    injection(db_nom = "lepidoptere.db", 
+              carte_table = carte_table, 
+              append = FALSE, 
+              overwrite = TRUE)
   ))
