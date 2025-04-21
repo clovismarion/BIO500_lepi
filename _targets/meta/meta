@@ -17,15 +17,25 @@ combinaisons|function|d0dacd96f0c60748|||||||||||||||
 df_list|stem|c6225f4096b0aa41|c213becefa4884f7|1c2a422a6970bb7b|212796754||t20197.9446121843s|s6324350b|6324350|rds|local|vector|||3.55|package igraph was built under R version 4.4.3|
 clean_data|stem|d301fec53efa2f5f|4cbb9f28b69a3d88|ff191a9d18551e00|-259385813||t20197.9447031247s|s5099826b|5099826|rds|local|vector|||5.66|NAs introduced by coercion. NAs introduced by coercion|
 raw_data|stem|d8dea35fa7a04a99|41b7144bfabefe30|72de0e3517b5df02|-1101284392||t20197.9455185845s|s4625153b|4625153|rds|local|vector|||3.67||
-df_site|stem|751023399789e15e|25999e47737626fb|86708be3f21812ea|612879122||t20197.9561277617s|s5750230b|5750230|rds|local|vector|||0.41||
 df_info|stem|2a08d242ccf1ef63|3fd23dfc94c9e67d|4f1d86e708e7e206|1995444860||t20197.9589515704s|s5350284b|5350284|rds|local|vector|||0.45||
-df_infos|stem|2a08d242ccf1ef63|3fd23dfc94c9e67d|4f1d86e708e7e206|291449188||t20197.9618404907s|s5350284b|5350284|rds|local|vector|||0.45||
-df_obs|stem|216927e2061c6b9c|049ed50ba8a3ee1e|3f22a0399940f626|-901654702||t20197.961872064s|s5372254b|5372254|rds|local|vector|||0.31||
-df_main|stem|12be6600df691572|d70c2be6fd6d3368|1c25300f9977fd67|398572223||t20197.9651468256s|s8449619b|8449619|rds|local|vector|||0.69||
-load_csv_files|function|e86072892c5c5d41
-quebec|function|19d5b941d8d71909
-clean|function|55eaad95b71cf105
-validate|function|770a746eee9c9e0f
-.Random.seed|object|9746c8dc604d6fb0
-list_data|function|4f767842363de450
-df_site_qc|stem|89894ecf98497995|224a409fc381331c|a1f22cec29e5dfef|-1809320253||t20197.9743338961s|s417925b|417925|rds|local|vector|||2.96|bounding box has potentially an invalid value range for longlat data|
+load_csv_files|function|e86072892c5c5d41|||||||||||||||
+quebec|function|19d5b941d8d71909|||||||||||||||
+clean|function|55eaad95b71cf105|||||||||||||||
+validate|function|770a746eee9c9e0f|||||||||||||||
+list_data|function|4f767842363de450|||||||||||||||
+liste_df|stem|c6225f4096b0aa41|808cc1472258ea42|88a7921eb7fd2272|1307221602||t20198.7854913527s|s6324350b|6324350|rds|local|vector|||4.2|package igraph was built under R version 4.4.3|
+donnees_propres|stem|d301fec53efa2f5f|2e26b8b8ded4f2fa|37b323d19a9e7b95|720479009||t20198.7855870113s|s5099826b|5099826|rds|local|vector|||6.01|NAs introduced by coercion. NAs introduced by coercion|
+donnees_brutes|stem|d8dea35fa7a04a99|60737e14e555fd8e|23f03d5b9bc9a4cf|2137825509||t20198.7856674841s|s4625153b|4625153|rds|local|vector|||4.42||
+df_site|stem|751023399789e15e|03d0352c782a4ed3|ad499aa8718659e8|612879122||t20198.7862832922s|s5750230b|5750230|rds|local|vector|||0.55||
+df_infos|stem|2a08d242ccf1ef63|02bf7b30ba083b25|447c0f5401d5ba11|291449188||t20198.7863189499s|s5350284b|5350284|rds|local|vector|||0.64||
+df_site_qc|stem|89894ecf98497995|46712ae0938beaf9|ba02de77aa2891af|-1809320253||t20198.7867980912s|s417925b|417925|rds|local|vector|||2.71|bounding box has potentially an invalid value range for longlat data|
+df_obs|stem|216927e2061c6b9c|ee6fd76abce55bff|40ebe5fd667cba30|-901654702||t20198.7868464124s|s5372254b|5372254|rds|local|vector|||0.4||
+df_main|stem|12be6600df691572|a26dd06c04a76ff8|2ca25ef2438646d8|398572223||t20198.7868948899s|s8449619b|8449619|rds|local|vector|||0.89||
+valider|function|520c8c99381e1f48
+.Random.seed|object|ae1252e208c8a3cd
+chargement|function|a6725ef8f9aaab02
+nettoyage|function|743ccee764932a46
+table_creation|function|769f37973412974f
+selection_qc|function|19d5b941d8d71909
+liste_donnees|function|1cc0bd3847b32d2f
+creation_tables|stem||3d9e9228b2d3d772|eacb3300d5029235|404595331||t20198.8037244559s||0|rds|local|vector|||0.11|package igraph was built under R version 4.4.3. cannot remove file lepidoptre.db, reason No such file or directory. Closing open result set, pending rows|error in evaluating the argument statement in selecting a method for function dbSendQuery object tbl_site_qc not found

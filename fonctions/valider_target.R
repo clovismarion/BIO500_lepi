@@ -1,5 +1,5 @@
-validate <- function(df_list){
-  df<-bind_rows(df_list)
+valider <- function(liste_df){
+  df<-bind_rows(liste_df)
   
   x <- summary(df)
   

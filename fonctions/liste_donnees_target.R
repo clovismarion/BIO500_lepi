@@ -1,8 +1,8 @@
 library(dplyr)
 
-list_data <- function(data, cols, id_name) {
+liste_donnees <- function(data, cols, id_nom) {
   # Define new ID column name
-  id_col <- paste0("id_", id_name)
+  id_col <- paste0("id_", id_nom)
   
   # Create distinct ID table with custom name
   id_table <- data %>%
@@ -16,7 +16,7 @@ list_data <- function(data, cols, id_name) {
   
   # Return a named list with the table named after id_name
   output <- list()
-  output[[paste0(id_name, "_table")]] <- id_table
+  output[[paste0(id_nom, "_table")]] <- id_table
   output$data_with_id <- data_with_id
   
   return(output)

@@ -1,6 +1,6 @@
-clean <- function(df_liste){
+nettoyage <- function(liste_df){
   #appliquer la fonction à tous les dataframes de la liste
-  lapply(df_liste, function(df) {
+  lapply(liste_df, function(df) {
     
     #S'assurer de l'uniformité des noms de colones
     if (ncol(df) == 17) {
