@@ -28,4 +28,15 @@ Le packages suivant est utilisé au travers des scripts:
 
 ## Scripts
 
-Le script “principal.R” exécute les différentes fonctions utilisées pour le projet et qui sont retrouvées dans le dossier "/fonctions"
+Le script “principal.R” exécute les différentes fonctions utilisées pour le projet et qui sont retrouvées dans le dossier "/fonctions".
+Le scipt "_targets.R" contient la structure du projet et le roule dans son ensemble jusqu'à la production du rapport
+
+# Dossiers
+
+- le dossier "fonctions" contient les fonctions utilisées dans le projet
+
+- le dossier "lepidopteres" contient les données
+
+- le dossier "Obsolète" contient des scripts qui ne sont plus utilisés dans le projet, mais qui peuvent servir de références
+
+- le dossier "rapport" contient l,information nécessaire pour la formation du rapport en .MD
