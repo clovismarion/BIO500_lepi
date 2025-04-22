@@ -20,8 +20,7 @@ plot(st_geometry(canada_provinces[canada_provinces$name_en == 'Quebec',]),
      axes = TRUE,
      xlab = "Longitude", ylab = "Latitude",
      col = "white", border = "black", 
-     bg = "white",
-     main = "Observations de lépidoptères au Québec (1859-2023)")
+     bg = "white")
 
 
 # 2 Ajouter une ligne à chaque 1 degré
@@ -52,4 +51,4 @@ legend("topright",
        cex=0.8)
 }
 
-carteQC()
+#carteQC()
