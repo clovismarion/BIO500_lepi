@@ -21,6 +21,7 @@ source("fonctions/requeteQ1.R")
 source("fonctions/requeteQ2.R")
 source("fonctions/requeteQ3.R")
 source("fonctions/graphLAT.R")
+source("fonctions/graphLON.R")
 
 # Pipeline
 list(
@@ -103,4 +104,8 @@ list(
   tar_target(
     graphique_lat, 
     graphLAT(requete = requete_1)
+  ),
+  tar_target(
+    graphique_long, 
+    graphLON(requete = requete_2)
   ))

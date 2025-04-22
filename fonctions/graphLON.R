@@ -1,7 +1,7 @@
-graphLON <- function(){
+graphLON <- function(requete){
   
   #nombre d'espèce par latitude différente
-  richesse_par_lon <- Q2 %>%
+  richesse_par_lon <- requete %>%
     group_by(lon) %>%
     summarise(nb_especes = n_distinct(observed_scientific_name))
   
