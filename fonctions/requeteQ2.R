@@ -6,10 +6,10 @@ con <- dbConnect(SQLite(), dbname = db_nom)
 
 #Requête pour la Q1 de la variation du nombre d'espèce selon la longitude
 requete_Q2 <- "
-SELECT main.observed_scientific_name, site.lat, site.lon, site.site_id
+SELECT main.observed_scientific_name, site.lat, site.lon, site.id_site
 FROM main
 left JOIN site
-  ON main.site_id = site.site_id
+  ON main.id_site = site.id_site
 WHERE site.Quebec = True
    
 "

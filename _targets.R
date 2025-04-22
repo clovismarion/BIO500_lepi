@@ -17,6 +17,9 @@ source("fonctions/selection_qc_target.R")
 source("fonctions/RSQLite_target.R")
 source("fonctions/selection_target.R")
 source("fonctions/injection_target.R")
+source("fonctions/requeteQ1.R")
+source("fonctions/requeteQ2.R")
+source("fonctions/requeteQ3.R")
 
 # Pipeline
 list(
@@ -83,4 +86,16 @@ list(
               carte_table = carte_tables,
               append = FALSE,
               overwrite = TRUE)
+  ),
+  tar_target(
+    requete_1, 
+    req1(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    requete_2, 
+    req2(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    requete_3, 
+    req3(db_nom = "lepidoptere.db")
   ))

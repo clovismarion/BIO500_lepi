@@ -37,14 +37,20 @@ df_site_qc|stem|89894ecf98497995|46712ae0938beaf9|ba02de77aa2891af|-1809320253||
 df_observation|stem|216927e2061c6b9c|3750b6a87cf869d9|5886d8c23b1644b6|1128802709||t20200.0816885783s|s5372254b|5372254|rds|local|vector|||0.11||
 df_main|stem|67d2ca3602a9875b|8be651b2be3bd882|93695dc68efe26bb|398572223||t20200.0845206413s|s8449628b|8449628|rds|local|vector|||0.89||
 principal|stem|b4eca2e9a1ec71e7|28d6f32d2049e3e3|1e85b46d437215be|-1079939000||t20200.088549797s|s4123992b|4123992|rds|local|vector|||0||
+carte_tables|stem|5aaedc8fecdcd6e9|be7a51ef41a5ff12|a4dcb5df518942f0|1473994483||t20200.0924049985s|s4549127b|4549127|rds|local|vector|||0||
+db_SQL|stem|907210f79bf4cb1b|44ceabe8d89eb5d5|2ba5dddf76f2ec70|617262082||t20200.092417596s|s48b|48|rds|local|vector|||1.04||
+requete_1|stem|3d910326f19e1bab|ae4c24494d37fe78|f1f1eb2e29ad1b5e|-159280227||t20200.1158057889s|s791430b|791430|rds|local|vector|||1.27|package igraph was built under R version 4.4.3|
+requete_2|stem|8cff2307cc047cc9|75b1a1690e7d3c60|28cac7f10d8b691f|-840637032||t20200.1177703699s|s955057b|955057|rds|local|vector|||1.17|package igraph was built under R version 4.4.3|
 selection|function|7d9aa77e5d9a9d5e
+req1|function|4bba990e91eca1e8
+req2|function|0248543a2800228b
 injection|function|d98dd00403319a22
+req3|function|2d7a4c200d41e4bd
 valider|function|520c8c99381e1f48
-.Random.seed|object|916ea5174a2403db
+.Random.seed|object|9eae6c309bf52eaf
 chargement|function|a6725ef8f9aaab02
 nettoyage|function|743ccee764932a46
 table_creation|function|bdaf1eb74e66d84d
 selection_qc|function|19d5b941d8d71909
 liste_donnees|function|1cc0bd3847b32d2f
-carte_tables|stem|5aaedc8fecdcd6e9|be7a51ef41a5ff12|a4dcb5df518942f0|1473994483||t20200.0924049985s|s4549127b|4549127|rds|local|vector|||0||
-db_SQL|stem|907210f79bf4cb1b|44ceabe8d89eb5d5|2ba5dddf76f2ec70|617262082||t20200.092417596s|s48b|48|rds|local|vector|||1.04||
+requete_3|stem|1703ba340cd4b8fd|39bbf1d6ef5add78|af19df3fe33471eb|1146041994||t20200.1195859517s|s690229b|690229|rds|local|vector|||1.33|package igraph was built under R version 4.4.3|
