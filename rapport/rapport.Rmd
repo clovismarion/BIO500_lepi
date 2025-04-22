@@ -62,7 +62,7 @@ with_amsmath: true
 # with_array: true
 # with_dblfloatfix: true
 
-#bibliography:
+bibliography: biblio.bib
 output: rticles::ieee_article
 #citation_sorting: none   ## used as sorting option of the biblatex package (if selected)
 header-includes:
@@ -72,115 +72,61 @@ header-includes:
 # Introduction
 
 <!-- no \IEEEPARstart -->
-Les changements climatiques constituent aujourd’hui un enjeu majeur au cœur des préoccupations environnementales. Leurs effets sont multiples, dont l’altération des milieux naturels, qui peut influencer de manière sévère la biodiversité(McElwee Pamela, 2021). Parmi les groupes  touchés par ces changements, on y retrouve les lépidoptères.  En effet, selon une étude menée sur l’entièreté du territoire des États-Unis qui combine plusieurs jeux de données entre 2000 et 2020,  l'abondance de lépidoptères aurait baissé de 22% (Collin B.Edward,2025). Considérant que ce pays est adjacent au territoire Québécois, il est pertinent de considérer qu’il est possible qu’un phénomène semblable y soit aussi présent. Dans un tel contexte, il est d’autant plus pertinent de mieux comprendre la répartition spatiale de la biodiversité de ce groupe afin d’anticiper les impacts potentiels des changements climatiques.
+Les changements climatiques constituent aujourd’hui un enjeu majeur au cœur des préoccupations environnementales. Leurs effets sont multiples, dont l’altération des milieux naturels, qui peut influencer de manière sévère la biodiversité [@mcelwee_climate_2021]. Parmi les groupes  touchés par ces changements, on y retrouve les lépidoptères.  En effet, selon une étude menée sur l’entièreté du territoire des États-Unis qui combine plusieurs jeux de données entre 2000 et 2020,  l'abondance de lépidoptères aurait baissé de 22% [@edwards_rapid_2025-1]. Considérant que ce pays est adjacent au territoire Québécois, il est pertinent de considérer qu’il est possible qu’un phénomène semblable y soit aussi présent. Dans un tel contexte, il est d’autant plus pertinent de mieux comprendre la répartition spatiale de la biodiversité de ce groupe afin d’anticiper les impacts potentiels des changements climatiques.
 <!-- You must have at least 2 lines in the paragraph with the drop letter
-(should never be an issue) -->
 
-
-<!-- An example of a floating figure using the graphicx package.
-Note that \label must occur AFTER (or within) \caption.
-For figures, \caption should occur after the \includegraphics.
-Note that IEEEtran v1.7 and later has special internal code that
-is designed to preserve the operation of \label within \caption
-even when the captionsoff option is in effect. However, because
-of issues like this, it may be the safest practice to put all your
-\label just after \caption rather than within \caption{}.
-
-Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-option should be used if it is desired that the figures are to be
-displayed while in draft mode.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in]{myfigure}
-where an .eps filename suffix will be assumed under latex, 
-and a .pdf suffix will be assumed for pdflatex; or what has been declared
-via \DeclareGraphicsExtensions.
-\caption{Simulation results for the network.}
-\label{fig_sim}
-\end{figure}
-
-Note that the IEEE typically puts floats only at the top, even when this
-results in a large percentage of a column being occupied by floats.
-
-
-An example of a double column floating figure using two subfigures.
-(The subfig.sty package must be loaded for this to work.)
-The subfigure \label commands are set within each subfloat command,
-and the \label for the overall figure must come after \caption.
-\hfil is used as a separator to get equal spacing.
-Watch out that the combined width of all the subfigures on a 
-line do not exceed the text width or a line break will occur.
-
-\begin{figure*}[!t]
-\centering
-\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-\label{fig_first_case}}
-\hfil
-\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-\label{fig_second_case}}
-\caption{Simulation results for the network.}
-\label{fig_sim}
-\end{figure*}
-
-Note that often IEEE papers with subfigures do not employ subfigure
-captions (using the optional argument to \subfloat[]), but instead will
-reference/describe all of them (a), (b), etc., within the main caption.
-Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
-labels, the optional argument to \subfloat must be present. If a
-subcaption is not desired, just leave its contents blank,
-e.g., \subfloat[].
-
-
-An example of a floating table. Note that, for IEEE style tables, the
-\caption command should come BEFORE the table and, given that table
-captions serve much like titles, are usually capitalized except for words
-such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
-and up, which are usually not capitalized unless they are the first or
-last word of the caption. Table text will default to \footnotesize as
-the IEEE normally uses this smaller font for tables.
-The \label must come after \caption as always.
-
-\begin{table}[!t]
-% increase table row spacing, adjust to taste
-\renewcommand{\arraystretch}{1.3}
-if using array.sty, it might be a good idea to tweak the value of
-\extrarowheight as needed to properly center the text within the cells
-\caption{An Example of a Table}
-\label{table_example}
-\centering
-% Some packages, such as MDW tools, offer better commands for making tables
-% than the plain LaTeX2e tabular which is used here.
-\begin{tabular}{|c||c|}
-\hline
-One & Two\\
-\hline
-Three & Four\\
-\hline
-\end{tabular}
-\end{table}
 
 <!-- no \IEEEPARstart -->
 # Méthode
 
-(section méthode)
+Les données d’observation ponctuelles de lépidoptères utilisés proviennent de différentes sources, dont INaturalist et eButterfly. Ces données couvrent une période allant de 1859 à 2023. Elles ont été compilées et ont ensuite été nettoyées avec R studio avec l’aide de différents packages. Une base de données a été créée dans SQL et différentes tables ont permis de stocker l’information. Différentes requêtes ont pu être formulées afin de répondre à nos questions initiales, soit de comprendre la répartition spatiale de l’abondance spécifique de lépidoptères sur le territoire québécois. Enfin, un “pipeline” assemblé à l’aide de “targets” fut créé.
 
 # Résultats
+
+La base de données contenait plus de 400 000 observations. De celles-ci, environ 195 000 ont été déterminées comme étant sur le territoire québécois et ont été conservées pour les analyses. Plus de la moitié (53%) des observations proviennent de la base de données INaturalist depuis sa création en 2015. Environ 25% des observations proviennent de eButterly. Le dernier 20% des observations est issu de sources variées.
+
+En observant la richesse spécifique à chacune des latitudes pour lesquelles nous avons des données, nous avons pu former la figure 1. Sur cette dernière, la majorité des observations sont observées au sud du 50e parallèle (fig. 1). 
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=3.5in]{lat.png}
-  \caption{Richesse spécifique de lépioptères au Québec}
+  \caption{Richesse spécifique de lépioptères au Québec selon un gradient Nord-Sud du 45e au 65e parallèle}
 \end{figure}
 
+Pour continuer, le même processus fut suivi afin d'illustrer la variation spécifique selon un gradient longitudinal (fig. 2). Aucune tendance ne semble apparaître dans la variation longitudinale des données. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3.5in]{lon.png}
+  \caption{Richesse spécifique de lépioptères au Québec selon un gradient de longitude de -60 à -80}
+\end{figure}
 
-#Discussion
+Par la suite, la distribution géographique des points d’observation sur le territoire du Québec à été illustrée à l’aide de la fig.3.
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3.5in]{quebec.png}
+  \caption{Répartition géorgaphique des observations recencées de lépidoptères au Québec de 1859 à 2023}
+\end{figure}
 
-# Conclusion
+# Discussion
+
+La tendance positive du nombre d'espèces selon le gradient nord-sud pourrait s’expliquer par les différences entre les milieux climatiques qui, eux, varient en fonction de la latitude. Tel que mentionné précédemment, il est possible d’observer une baisse de la diversité spécifique à partir de 48 degrés de latitude, ce qui correspond à la transition entre la zone tempérée nordique nordique et la zone boréale[@mffp_zones_2022]. Plus que l’on s’éloigne de la zone tempérée nordique, plus le type des forêts passe d’érablières à des sapinières et le climat devient plus rigoureux. En effet, vers le nord,  les précipitations diminuent, la température chute et la saison de croissance est raccourcie [@benoit_assessing_2002]. C'est alors dans les conditions clémentes du sud de la province que l’on y retrouve la plus grande biodiversité de végétaux [@begin_conserver_2022]. Considérant que la diversité des Lépidoptères est entre autres influencée par la diversité des végétaux, la tendance semble correspondre à la littérature. 
+
+Considérant que les prédictions actuelles des changements climatiques indiquent une tendance vers un réchauffement du climat, cela pourrait  possiblement avoir des impacts sur la répartition et la biodiversité des espèces au Québec. En effet, si la température devient trop élevée pour les espèces étant situées plus au sud de la province, il serait possible que ces espèces tendent à se diriger vers le nord afin d’atteindre des habitats plus frais[@hill_climate_2021].Cependant, même si le territoire de la zone boréale est plus frais, il ne faut pas oublier que la composition écosystémique n’est pas la même, demandant parfois une adaptation rapide à une nouvelle niche écologique, ce qui constitue un enjeu de taille pour de nombreuses espèces [@hill_climate_2021]. Le réchauffement du climat pourrait aussi engendrer une arrivée plus rapide du printemps, causant potentiellement un décalage entre l’ouverture des fleurs et l’activité des pollinisateurs, ce qui pourrait avoir un impact négatif sur la valeur sélective de ces derniers[@posledovich_developmental_2015]. De plus, il fut d’observer que les espèces de Lépidoptères étant adaptées aux zones arctiques et boréales sont plus sensibles aux réchauffements climatiques que les autres espèces de papillons[@shirey_rising_2024]. 
+
+Par la suite, tel que mentionné plus haut, on peut observer qu' en longitude, la distribution ne semble pas suivre une tendance constante. Toutefois, il est possible d'observer qu’il y a moins d’espèces à reporter vers l’est de la province. Cette diminution pourrait s’expliquer par la division du territoire terrestre par de grandes étendues d’eau à partir de ces mêmes longitudes (Figure 3). 
+
+Il faut toutefois prendre en considération qu’il existe un biais majeur quant aux données utilisées dans cette étude, car elles proviennent en majorité d’observations provenant de la science citoyenne. En effet, il est difficile de savoir si les zones ayant moins d’observation découlent d’une diversité spécifique plus faible de Lépidoptère ou si elle correspond plutôt à une densité plus faible de population humaine, et donc à un effort d'échantillonnage moindre. En effet, il est possible d’observer que les régions ayant un nombre élevé d'observations semblent correspondre avec les zones ayant une plus grande densité de population, soit les régions du sud du Québec(Annexe 1). De plus, hors la densité de la population, il faut aussi prendre en considération que certains secteurs sont moins accessibles pour la prise de données. En effet, malgré la plus faible densité de population dans la zone boréale, il est possible d’observer sur la figure 3 des observations qui se suivent géographiquement et qui correspondent avec la forme d’une route, telle que pour la route 109 et son prolongement, soit la route Billy Diamond, située au nord-ouest du Québec. Ces aspects pourraient alors expliquer, du moins en partie, les tendances observées de la richesse spécifique sur le territoire. Afin d’éviter ce biais et de pouvoir tirer des conclusions justes, il faudrait alors effectuer des prises de données de Lépidoptère de manière standardisée en utilisant le même effort d’échantillonnage à chaque latitude et longitude. Cela permettrait alors de tirer des conclusions plus précises quant à la répartition des Lépidoptères. 
+
 
 <!--  -->
+ANNEXE 1
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{densite.png}
+\end{figure}
 
 
 \newpage

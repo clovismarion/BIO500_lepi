@@ -331,6 +331,41 @@ citoyenne, Zones climatiques, Changements climatiques},
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 
+% Pandoc citation processing
+%From Pandoc 3.1.8
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \usepackage{float}
 
@@ -455,36 +490,203 @@ climatiques; Changements climatiques
 Les changements climatiques constituent aujourd'hui un enjeu majeur au
 cœur des préoccupations environnementales. Leurs effets sont multiples,
 dont l'altération des milieux naturels, qui peut influencer de manière
-sévère la biodiversité(McElwee Pamela, 2021). Parmi les groupes touchés
-par ces changements, on y retrouve les lépidoptères. En effet, selon une
-étude menée sur l'entièreté du territoire des États-Unis qui combine
-plusieurs jeux de données entre 2000 et 2020, l'abondance de
-lépidoptères aurait baissé de 22\% (Collin B.Edward,2025). Considérant
-que ce pays est adjacent au territoire Québécois, il est pertinent de
-considérer qu'il est possible qu'un phénomène semblable y soit aussi
-présent. Dans un tel contexte, il est d'autant plus pertinent de mieux
-comprendre la répartition spatiale de la biodiversité de ce groupe afin
-d'anticiper les impacts potentiels des changements climatiques.
+sévère la biodiversité (McElwee 2021). Parmi les groupes touchés par ces
+changements, on y retrouve les lépidoptères. En effet, selon une étude
+menée sur l'entièreté du territoire des États-Unis qui combine plusieurs
+jeux de données entre 2000 et 2020, l'abondance de lépidoptères aurait
+baissé de 22\% (Edwards et al. 2025). Considérant que ce pays est
+adjacent au territoire Québécois, il est pertinent de considérer qu'il
+est possible qu'un phénomène semblable y soit aussi présent. Dans un tel
+contexte, il est d'autant plus pertinent de mieux comprendre la
+répartition spatiale de la biodiversité de ce groupe afin d'anticiper
+les impacts potentiels des changements climatiques. \# Méthode
 
-\section{Méthode}\label{muxe9thode}
-
-(section méthode)
+Les données d'observation ponctuelles de lépidoptères utilisés
+proviennent de différentes sources, dont INaturalist et eButterfly. Ces
+données couvrent une période allant de 1859 à 2023. Elles ont été
+compilées et ont ensuite été nettoyées avec R studio avec l'aide de
+différents packages. Une base de données a été créée dans SQL et
+différentes tables ont permis de stocker l'information. Différentes
+requêtes ont pu être formulées afin de répondre à nos questions
+initiales, soit de comprendre la répartition spatiale de l'abondance
+spécifique de lépidoptères sur le territoire québécois. Enfin, un
+``pipeline'' assemblé à l'aide de ``targets'' fut créé.
 
 \section{Résultats}\label{ruxe9sultats}
+
+La base de données contenait plus de 400 000 observations. De celles-ci,
+environ 195 000 ont été déterminées comme étant sur le territoire
+québécois et ont été conservées pour les analyses. Plus de la moitié
+(53\%) des observations proviennent de la base de données INaturalist
+depuis sa création en 2015. Environ 25\% des observations proviennent de
+eButterly. Le dernier 20\% des observations est issu de sources variées.
+
+En observant la richesse spécifique à chacune des latitudes pour
+lesquelles nous avons des données, nous avons pu former la figure 1. Sur
+cette dernière, la majorité des observations sont observées au sud du
+50e parallèle (fig.~1).
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=3.5in]{lat.png}
-  \caption{Richesse spécifique de lépioptères au Québec}
+  \caption{Richesse spécifique de lépioptères au Québec selon un gradient Nord-Sud du 45e au 65e parallèle}
 \end{figure}
 
-\#Discussion
+Pour continuer, le même processus fut suivi afin d'illustrer la
+variation spécifique selon un gradient longitudinal (fig.~2). Aucune
+tendance ne semble apparaître dans la variation longitudinale des
+données.
 
-\section{Conclusion}\label{conclusion}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3.5in]{lon.png}
+  \caption{Richesse spécifique de lépioptères au Québec selon un gradient de longitude de -60 à -80}
+\end{figure}
+
+Par la suite, la distribution géographique des points d'observation sur
+le territoire du Québec à été illustrée à l'aide de la fig.3.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=3.5in]{quebec.png}
+  \caption{Répartition géorgaphique des observations recencées de lépidoptères au Québec de 1859 à 2023}
+\end{figure}
+
+\section{Discussion}\label{discussion}
+
+La tendance positive du nombre d'espèces selon le gradient nord-sud
+pourrait s'expliquer par les différences entre les milieux climatiques
+qui, eux, varient en fonction de la latitude. Tel que mentionné
+précédemment, il est possible d'observer une baisse de la diversité
+spécifique à partir de 48 degrés de latitude, ce qui correspond à la
+transition entre la zone tempérée nordique nordique et la zone
+boréale(MFFP 2022). Plus que l'on s'éloigne de la zone tempérée
+nordique, plus le type des forêts passe d'érablières à des sapinières et
+le climat devient plus rigoureux. En effet, vers le nord, les
+précipitations diminuent, la température chute et la saison de
+croissance est raccourcie (BenoÍt et al. 2002). C'est alors dans les
+conditions clémentes du sud de la province que l'on y retrouve la plus
+grande biodiversité de végétaux (Bégin 2022). Considérant que la
+diversité des Lépidoptères est entre autres influencée par la diversité
+des végétaux, la tendance semble correspondre à la littérature.
+
+Considérant que les prédictions actuelles des changements climatiques
+indiquent une tendance vers un réchauffement du climat, cela pourrait
+possiblement avoir des impacts sur la répartition et la biodiversité des
+espèces au Québec. En effet, si la température devient trop élevée pour
+les espèces étant situées plus au sud de la province, il serait possible
+que ces espèces tendent à se diriger vers le nord afin d'atteindre des
+habitats plus frais(Hill et al. 2021).Cependant, même si le territoire
+de la zone boréale est plus frais, il ne faut pas oublier que la
+composition écosystémique n'est pas la même, demandant parfois une
+adaptation rapide à une nouvelle niche écologique, ce qui constitue un
+enjeu de taille pour de nombreuses espèces (Hill et al. 2021). Le
+réchauffement du climat pourrait aussi engendrer une arrivée plus rapide
+du printemps, causant potentiellement un décalage entre l'ouverture des
+fleurs et l'activité des pollinisateurs, ce qui pourrait avoir un impact
+négatif sur la valeur sélective de ces derniers(Posledovich et al.
+2015). De plus, il fut d'observer que les espèces de Lépidoptères étant
+adaptées aux zones arctiques et boréales sont plus sensibles aux
+réchauffements climatiques que les autres espèces de papillons(Shirey et
+al. 2024).
+
+Par la suite, tel que mentionné plus haut, on peut observer qu' en
+longitude, la distribution ne semble pas suivre une tendance constante.
+Toutefois, il est possible d'observer qu'il y a moins d'espèces à
+reporter vers l'est de la province. Cette diminution pourrait
+s'expliquer par la division du territoire terrestre par de grandes
+étendues d'eau à partir de ces mêmes longitudes (Figure 3).
+
+Il faut toutefois prendre en considération qu'il existe un biais majeur
+quant aux données utilisées dans cette étude, car elles proviennent en
+majorité d'observations provenant de la science citoyenne. En effet, il
+est difficile de savoir si les zones ayant moins d'observation découlent
+d'une diversité spécifique plus faible de Lépidoptère ou si elle
+correspond plutôt à une densité plus faible de population humaine, et
+donc à un effort d'échantillonnage moindre. En effet, il est possible
+d'observer que les régions ayant un nombre élevé d'observations semblent
+correspondre avec les zones ayant une plus grande densité de population,
+soit les régions du sud du Québec(Annexe 1). De plus, hors la densité de
+la population, il faut aussi prendre en considération que certains
+secteurs sont moins accessibles pour la prise de données. En effet,
+malgré la plus faible densité de population dans la zone boréale, il est
+possible d'observer sur la figure 3 des observations qui se suivent
+géographiquement et qui correspondent avec la forme d'une route, telle
+que pour la route 109 et son prolongement, soit la route Billy Diamond,
+située au nord-ouest du Québec. Ces aspects pourraient alors expliquer,
+du moins en partie, les tendances observées de la richesse spécifique
+sur le territoire. Afin d'éviter ce biais et de pouvoir tirer des
+conclusions justes, il faudrait alors effectuer des prises de données de
+Lépidoptère de manière standardisée en utilisant le même effort
+d'échantillonnage à chaque latitude et longitude. Cela permettrait alors
+de tirer des conclusions plus précises quant à la répartition des
+Lépidoptères.
+
+ANNEXE 1
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{densite.png}
+\end{figure}
 
 \newpage
 
-\section{Réferences}\label{references}
+\section*{Réferences}\label{references}
+\addcontentsline{toc}{section}{Réferences}
+
+\protect\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-begin_conserver_2022}
+Bégin, Catherine. 2022. {``Conserver Le Sud Du {Québec}, Pourquoi Est-Ce
+Si Important?''} \emph{Nature Québec}.
+\url{https://naturequebec.org/conserver-le-sud-du-quebec-pourquoi-est-ce-si-important/}.
+
+\bibitem[\citeproctext]{ref-benoit_assessing_2002}
+BenoÍt, H. P., O. E. Johannsson, D. M. Warner, W. G. Sprules, and L. G.
+Rudstam. 2002. {``Assessing the Impact of a Recent Predatory Invader:
+{The} Population Dynamics, Vertical Distribution, and Potential Prey of
+{Cercopagis} Pengoi in {Lake} {Ontario}.''} \emph{Limnology and
+Oceanography} 47 (3): 626--35.
+\url{https://doi.org/10.4319/lo.2002.47.3.0626}.
+
+\bibitem[\citeproctext]{ref-edwards_rapid_2025-1}
+Edwards, Collin B., Elise F. Zipkin, Erica H. Henry, Nick M. Haddad,
+Matthew L. Forister, Kevin J. Burls, Steven P. Campbell, et al. 2025.
+{``Rapid Butterfly Declines Across the {United} {States} During the 21st
+Century.''} \emph{Science} 387 (6738): 1090--94.
+\url{https://doi.org/10.1126/science.adp4671}.
+
+\bibitem[\citeproctext]{ref-hill_climate_2021}
+Hill, Geena M., Akito Y. Kawahara, Jaret C. Daniels, Craig C. Bateman,
+and Brett R. Scheffers. 2021. {``Climate Change Effects on Animal
+Ecology: Butterflies and Moths as a Case Study.''} \emph{Biological
+Reviews} 96 (5): 2113--26. \url{https://doi.org/10.1111/brv.12746}.
+
+\bibitem[\citeproctext]{ref-mcelwee_climate_2021}
+McElwee, Pamela. 2021. {``Climate {Change} and {Biodiversity} {Loss}:
+{Two} {Sides} of the {Same} {Coin}.''} \emph{Current History} 120 (829):
+295--300. \url{https://doi.org/10.1525/curh.2021.120.829.295}.
+
+\bibitem[\citeproctext]{ref-mffp_zones_2022}
+MFFP. 2022. {``Zones de Végétation Et Domaines Bioclimatiques Du
+{Québec}.''}
+
+\bibitem[\citeproctext]{ref-posledovich_developmental_2015}
+Posledovich, Diana, Tenna Toftegaard, Christer Wiklund, Johan Ehrlén,
+and Karl Gotthard. 2015. {``The Developmental Race Between Maturing Host
+Plants and Their Butterfly Herbivore -- the Influence of Phenological
+Matching and Temperature.''} Edited by Jonathan Newman. \emph{Journal of
+Animal Ecology} 84 (6): 1690--99.
+\url{https://doi.org/10.1111/1365-2656.12417}.
+
+\bibitem[\citeproctext]{ref-shirey_rising_2024}
+Shirey, Vaughn, Naresh Neupane, Robert Guralnick, and Leslie Ries. 2024.
+{``Rising Minimum Temperatures Contribute to 50 Years of Occupancy
+Decline Among Cold‐adapted {Arctic} and Boreal Butterflies in {North}
+{America}.''} \emph{Global Change Biology} 30 (2): e17205.
+\url{https://doi.org/10.1111/gcb.17205}.
+
+\end{CSLReferences}
 
 \end{document}
 
