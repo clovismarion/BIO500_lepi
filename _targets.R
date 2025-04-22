@@ -108,4 +108,8 @@ list(
   tar_target(
     graphique_lat, 
     graphLAT(requete = requete_1, format = "png")
+  ),
+  tar_render(
+    rapport, 
+    "rapport/rapport.Rmd"
   ))
