@@ -27,6 +27,8 @@ selection_qc <- function(site){
   
   site <- site_sf
   
+  site$geometry <- NULL
+  
   return(site)
 }
 
