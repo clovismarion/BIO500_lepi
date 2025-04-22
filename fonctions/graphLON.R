@@ -1,4 +1,11 @@
-graphLON <- function(requete){
+graphLON <- function(requete, format){
+  
+  switch(format,
+         png  = png("rapport/lon.png"),
+         jpeg = jpeg("rapport/lon.jpeg"),
+         pdf  = pdf("rapport/lon.pdf"),
+         stop("Unsupported format")
+  )
   
   #nombre d'espèce par latitude différente
   richesse_par_lon <- requete %>%
@@ -17,6 +24,8 @@ graphLON <- function(requete){
  
   #reg <- lm(nb_especes ~ lon, data = richesse_par_lon)
   #abline(reg, col="grey")
+  
+  dev.off()
   
 }
 

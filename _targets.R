@@ -102,6 +102,10 @@ list(
     req3(db_nom = "lepidoptere.db")
   ),
   tar_target(
+    graphique_lon, 
+    graphLON(requete = requete_2, format = "png")
+  ),
+  tar_target(
     graphique_lat, 
     graphLAT(requete = requete_1, format = "png")
   ))
