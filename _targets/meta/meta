@@ -42,19 +42,20 @@ db_SQL|stem|907210f79bf4cb1b|44ceabe8d89eb5d5|2ba5dddf76f2ec70|617262082||t20200
 requete_1|stem|3d910326f19e1bab|ae4c24494d37fe78|f1f1eb2e29ad1b5e|-159280227||t20200.1158057889s|s791430b|791430|rds|local|vector|||1.27|package igraph was built under R version 4.4.3|
 requete_2|stem|8cff2307cc047cc9|75b1a1690e7d3c60|28cac7f10d8b691f|-840637032||t20200.1177703699s|s955057b|955057|rds|local|vector|||1.17|package igraph was built under R version 4.4.3|
 requete_3|stem|1703ba340cd4b8fd|39bbf1d6ef5add78|af19df3fe33471eb|1146041994||t20200.1195859517s|s690229b|690229|rds|local|vector|||1.33|package igraph was built under R version 4.4.3|
-graphique_lat|stem|cd733b1baede4c52|e2559afa0f768c7b|0054cfca848f9cf0|-2055525708||t20200.1226970812s|s186b|186|rds|local|vector|||0.73||
+graphique_long|stem|5d49a5e22c3f82bd|32d6c23f6394f294|c2569a63001eb54f|-817368923||t20200.1253740481s|s121b|121|rds|local|vector|||0.8||
+graphique_lon|stem|5d49a5e22c3f82bd|32d6c23f6394f294|c2569a63001eb54f|-1288995775||t20200.7157336965s|s121b|121|rds|local|vector|||1.18||
 selection|function|7d9aa77e5d9a9d5e
 req1|function|4bba990e91eca1e8
 req2|function|0248543a2800228b
 injection|function|d98dd00403319a22
 req3|function|2d7a4c200d41e4bd
 valider|function|520c8c99381e1f48
-.Random.seed|object|9e2afba956a774a6
+.Random.seed|object|22e1171a9f55cf7c
 chargement|function|a6725ef8f9aaab02
 nettoyage|function|743ccee764932a46
 table_creation|function|bdaf1eb74e66d84d
 graphLON|function|96dee9b4930a9af9
 selection_qc|function|19d5b941d8d71909
-graphLAT|function|10ee028847fd5900
+graphLAT|function|4f34b441e181288a
 liste_donnees|function|1cc0bd3847b32d2f
-graphique_long|stem|5d49a5e22c3f82bd|32d6c23f6394f294|c2569a63001eb54f|-817368923||t20200.1253740481s|s121b|121|rds|local|vector|||0.8||
+graphique_lat|stem|9f51ea9ed7161e56|2c35ce8ad4ca87e4|06204f1bc7fc5bb2|-2055525708||t20200.7203987881s|s83b|83|rds|local|vector|||0.86||

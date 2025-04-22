@@ -1,6 +1,13 @@
 # Graphique latitiude
 
-graphLAT <- function(requete){
+graphLAT <- function(requete, format){
+  
+  switch(format,
+         png  = png("rapport/lat.png"),
+         jpeg = jpeg("rapport/lat.jpeg"),
+         pdf  = pdf("rapport/lat.pdf"),
+         stop("Unsupported format")
+  )
   
   #nombre d'espèce par latitude différente
   richesse_par_lat <- requete %>%
@@ -26,6 +33,8 @@ graphLAT <- function(requete){
          col = c("red"),
          lwd = 2,
          cex=0.8)
+  
+  dev.off()
   
 }
 

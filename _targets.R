@@ -103,9 +103,5 @@ list(
   ),
   tar_target(
     graphique_lat, 
-    graphLAT(requete = requete_1)
-  ),
-  tar_target(
-    graphique_long, 
-    graphLON(requete = requete_2)
+    graphLAT(requete = requete_1, format = "png")
   ))
