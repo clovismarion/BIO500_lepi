@@ -24,25 +24,27 @@ validate|function|770a746eee9c9e0f|||||||||||||||
 list_data|function|4f767842363de450|||||||||||||||
 df_infos|stem|2a08d242ccf1ef63|02bf7b30ba083b25|447c0f5401d5ba11|291449188||t20198.7863189499s|s5350284b|5350284|rds|local|vector|||0.64||
 df_obs|stem|216927e2061c6b9c|ee6fd76abce55bff|40ebe5fd667cba30|-901654702||t20198.7868464124s|s5372254b|5372254|rds|local|vector|||0.4||
-liste_df|stem|c6225f4096b0aa41|808cc1472258ea42|88a7921eb7fd2272|1307221602||t20199.7123214787s|s6324350b|6324350|rds|local|vector|||9.91|package igraph was built under R version 4.4.3|
-creation_tables|stem|907210f79bf4cb1b|3d9e9228b2d3d772|c7ac3202adef4d65|404595331||t20199.7123237795s|s48b|48|rds|local|vector|||0.1|cannot remove file lepidoptre.db, reason No such file or directory. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. There are 1 result in use. The connection will be released when they are closed|
-donnees_propres|stem|d301fec53efa2f5f|2e26b8b8ded4f2fa|37b323d19a9e7b95|720479009||t20199.7124953538s|s5099826b|5099826|rds|local|vector|||11.01|NAs introduced by coercion. NAs introduced by coercion|
-donnees_brutes|stem|d8dea35fa7a04a99|60737e14e555fd8e|23f03d5b9bc9a4cf|2137825509||t20199.7126237646s|s4625153b|4625153|rds|local|vector|||7.41||
-df_site|stem|751023399789e15e|03d0352c782a4ed3|ad499aa8718659e8|612879122||t20199.7126773421s|s5750230b|5750230|rds|local|vector|||0.33||
-df_info|stem|2a08d242ccf1ef63|02bf7b30ba083b25|447c0f5401d5ba11|1995444860||t20199.7127304756s|s5350284b|5350284|rds|local|vector|||1||
-df_observation|stem|216927e2061c6b9c|3750b6a87cf869d9|5886d8c23b1644b6|1128802709||t20199.7128217164s|s5372254b|5372254|rds|local|vector|||0.14||
-df_main|stem|67d2ca3602a9875b|8be651b2be3bd882|93695dc68efe26bb|398572223||t20199.712897913s|s8449628b|8449628|rds|local|vector|||0.56||
 tables_sql|stem|907210f79bf4cb1b|d85f1d63f9ef0430|c7ac3202adef4d65|615922004||t20199.8107655415s|s48b|48|rds|local|vector|||0.17|package igraph was built under R version 4.4.3. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. There are 1 result in use. The connection will be released when they are closed|
-df_site_qc|stem|042fbc48a4e80284|46712ae0938beaf9|419c9004bd4c87a9|-1809320253||t20199.8108152573s|s1057973b|1057973|rds|local|vector|||2.43|bounding box has potentially an invalid value range for longlat data|
-principal|stem|b4eca2e9a1ec71e7|28d6f32d2049e3e3|1e85b46d437215be|-1079939000||t20199.8548221992s|s4123992b|4123992|rds|local|vector|||0||
 carte_table|stem|270cdd65f857311d|df855b8e24f6e202|e93d572f5890ed2c|1175931235||t20199.8856052353s|s5185119b|5185119|rds|local|vector|||0||
+db_sql|stem||410b106264559d18|52d1c25785aa5b26|-955064502||t20199.8548616134s||0|rds|local|vector|||0.1||object table_map not found
+liste_df|stem|c6225f4096b0aa41|808cc1472258ea42|88a7921eb7fd2272|1307221602||t20200.081374633s|s6324350b|6324350|rds|local|vector|||5.78|package igraph was built under R version 4.4.3|
+creation_tables|stem|907210f79bf4cb1b|3d9e9228b2d3d772|c7ac3202adef4d65|404595331||t20200.0813759123s|s48b|48|rds|local|vector|||0.05|cannot remove file lepidoptre.db, reason No such file or directory. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. There are 1 result in use. The connection will be released when they are closed|
+donnees_propres|stem|d301fec53efa2f5f|2e26b8b8ded4f2fa|37b323d19a9e7b95|720479009||t20200.0814698615s|s5099826b|5099826|rds|local|vector|||5.93|NAs introduced by coercion. NAs introduced by coercion|
+donnees_brutes|stem|d8dea35fa7a04a99|60737e14e555fd8e|23f03d5b9bc9a4cf|2137825509||t20200.0815458186s|s4625153b|4625153|rds|local|vector|||3.95||
+df_site|stem|751023399789e15e|03d0352c782a4ed3|ad499aa8718659e8|612879122||t20200.0815765888s|s5750230b|5750230|rds|local|vector|||0.19||
+df_info|stem|2a08d242ccf1ef63|02bf7b30ba083b25|447c0f5401d5ba11|1995444860||t20200.0816307427s|s5350284b|5350284|rds|local|vector|||1||
+df_site_qc|stem|89894ecf98497995|46712ae0938beaf9|ba02de77aa2891af|-1809320253||t20200.0816592546s|s417925b|417925|rds|local|vector|||2.4|bounding box has potentially an invalid value range for longlat data|
+df_observation|stem|216927e2061c6b9c|3750b6a87cf869d9|5886d8c23b1644b6|1128802709||t20200.0816885783s|s5372254b|5372254|rds|local|vector|||0.11||
+df_main|stem|67d2ca3602a9875b|8be651b2be3bd882|93695dc68efe26bb|398572223||t20200.0845206413s|s8449628b|8449628|rds|local|vector|||0.89||
+principal|stem|b4eca2e9a1ec71e7|28d6f32d2049e3e3|1e85b46d437215be|-1079939000||t20200.088549797s|s4123992b|4123992|rds|local|vector|||0||
 selection|function|7d9aa77e5d9a9d5e
-injection|function|115b14ae72bf75d7
+injection|function|d98dd00403319a22
 valider|function|520c8c99381e1f48
-.Random.seed|object|6f5913ec016c1806
+.Random.seed|object|916ea5174a2403db
 chargement|function|a6725ef8f9aaab02
 nettoyage|function|743ccee764932a46
 table_creation|function|bdaf1eb74e66d84d
-selection_qc|function|c965dab35fc1a1fc
+selection_qc|function|19d5b941d8d71909
 liste_donnees|function|1cc0bd3847b32d2f
-db_sql|stem||410b106264559d18|52d1c25785aa5b26|-955064502||t20199.8548616134s||0|rds|local|vector|||0.1||object table_map not found
+carte_tables|stem|5aaedc8fecdcd6e9|be7a51ef41a5ff12|a4dcb5df518942f0|1473994483||t20200.0924049985s|s4549127b|4549127|rds|local|vector|||0||
+db_SQL|stem|907210f79bf4cb1b|44ceabe8d89eb5d5|2ba5dddf76f2ec70|617262082||t20200.092417596s|s48b|48|rds|local|vector|||1.04||

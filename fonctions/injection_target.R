@@ -16,8 +16,8 @@ library(DBI)
         row.names = FALSE
       )
       
-      dbDisconnect(con)
     }
+    dbDisconnect(con)
   }
 
   

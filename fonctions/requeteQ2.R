@@ -1,8 +1,8 @@
 # REQUETE 2
 
-req2 <- function(){
+req2 <- function(db_nom){
 
-con <- dbConnect(SQLite(), dbname="lepidoptere.db")
+con <- dbConnect(SQLite(), dbname = db_nom)
 
 #Requête pour la Q1 de la variation du nombre d'espèce selon la longitude
 requete_Q2 <- "

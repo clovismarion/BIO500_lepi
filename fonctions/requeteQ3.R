@@ -1,6 +1,8 @@
 # REQUETE 3
 
-req3 <- function(){
+req3 <- function(db_nom){
+  
+  con <- dbConnect(SQLite(), dbname = db_nom)
 
   #obtenir de l'information sur la provenance des données
 requete_Q4 <- "
