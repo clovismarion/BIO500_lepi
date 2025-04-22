@@ -20,6 +20,7 @@ source("fonctions/injection_target.R")
 source("fonctions/requeteQ1.R")
 source("fonctions/requeteQ2.R")
 source("fonctions/requeteQ3.R")
+source("fonctions/graphLAT.R")
 
 # Pipeline
 list(
@@ -98,4 +99,8 @@ list(
   tar_target(
     requete_3, 
     req3(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    graphique_lat, 
+    graphLAT(requete = requete_1)
   ))
