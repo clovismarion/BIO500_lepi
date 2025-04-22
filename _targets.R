@@ -15,6 +15,13 @@ source("fonctions/valider_target.R")
 source("fonctions/liste_donnees_target.R")
 source("fonctions/selection_qc_target.R")
 source("fonctions/RSQLite_target.R")
+source("fonctions/selection_target.R")
+source("fonctions/injection_target.R")
+source("fonctions/requeteQ1.R")
+source("fonctions/requeteQ2.R")
+source("fonctions/requeteQ3.R")
+source("fonctions/graphLAT.R")
+source("fonctions/graphLON.R")
 
 # Pipeline
 list(
@@ -62,4 +69,43 @@ list(
   tar_target(
     creation_tables, 
     table_creation(db_nom = "lepidoptre.db")
+  ),  
+  tar_target(
+    principal, 
+    selection(df = df_main$data_with_id, 
+              cols = c("observed_scientific_name", "year_obs", "day_obs", "time_obs", "dwc_event_date", "id_principal", "id_site", "id_infos", "id_obs"))
+  ),
+  tar_target(
+    carte_tables, 
+    list(main = principal, 
+         observaton = df_observation$obs_table,
+         info = df_info$infos_table,
+         site = df_site_qc)
+  ),
+  tar_target(
+    db_SQL, 
+    injection(db_nom = "lepidoptere.db",
+              carte_table = carte_tables,
+              append = FALSE,
+              overwrite = TRUE)
+  ),
+  tar_target(
+    requete_1, 
+    req1(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    requete_2, 
+    req2(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    requete_3, 
+    req3(db_nom = "lepidoptere.db")
+  ),
+  tar_target(
+    graphique_lat, 
+    graphLAT(requete = requete_1)
+  ),
+  tar_target(
+    graphique_long, 
+    graphLON(requete = requete_2)
   ))

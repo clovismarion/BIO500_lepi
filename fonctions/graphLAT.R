@@ -1,9 +1,9 @@
 # Graphique latitiude
 
-graphLAT <- function(){
+graphLAT <- function(requete){
   
   #nombre d'espèce par latitude différente
-  richesse_par_lat <- Q1 %>%
+  richesse_par_lat <- requete %>%
     group_by(lat) %>%
     summarise(nb_especes = n_distinct(observed_scientific_name))
   
