@@ -54,5 +54,16 @@ site$geometry <- NULL
 #création des tables
 source("RSQLite.R")
 
+#générer les requêtes
+source("requeteQ1.R")
+Q1 <- req1("lepidopteres.db")
+source("requeteQ2.R")
+Q2 <- req2("lepidopteres.db")
+source("requeteQ3.R")
+Q3 <- req3("lepidopteres.db")
 
-
+#générer des graphiques
+source("graphLAT.R")
+graphLAT(Q1, png)
+source("graphLON.R")
+graphLON(Q2, png)
